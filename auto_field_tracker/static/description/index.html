@@ -4,8 +4,8 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Auto Field Tracker — Odoovix</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+
+
 <style>
 :root{
   /* ── DUAL SHADE PALETTE ── */
@@ -45,7 +45,7 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{
-  font-family:'Outfit',sans-serif;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',Arial,sans-serif;
   background:var(--bg-body);
   color:var(--v800);
   font-size:15px;line-height:1.7;
@@ -60,7 +60,7 @@ body{
   border:1px solid rgba(185,158,240,.15);border-radius:100px;
   padding:10px 22px;display:flex;align-items:center;gap:16px;
 }
-.nav-logo{font-family:'Outfit',sans-serif;font-size:15px;font-weight:800;color:#fff;letter-spacing:-.02em}
+.nav-logo{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',Arial,sans-serif;font-size:15px;font-weight:800;color:#fff;letter-spacing:-.02em}
 .nav-logo span{
   background:linear-gradient(90deg,var(--a400),var(--a300));
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
@@ -293,7 +293,7 @@ body{
 .tab-btn{
   flex:1;min-width:150px;padding:10px 16px;border-radius:10px;
   border:none;background:transparent;
-  font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;color:var(--v600);
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',Arial,sans-serif;font-size:13px;font-weight:600;color:var(--v600);
   cursor:pointer;transition:all .25s;
 }
 .tab-btn.active{
@@ -461,7 +461,7 @@ body{
 .info-tbl td:last-child{color:var(--v800);font-weight:600}
 .chip-wrap{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
 .chip{
-  font-family:'Space Mono',monospace;
+  font-family:'SFMono-Regular','Consolas','Courier New',monospace;
   font-size:11.5px;padding:5px 13px;border-radius:8px;
   transition:all .2s;cursor:default;
 }
@@ -538,7 +538,7 @@ body{
 .store-header{
   background:#fff;
   border-bottom:1px solid #e2e5e8;
-  font-family:'Outfit',sans-serif;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',Arial,sans-serif;
 }
 .store-header-inner{
   max-width:1100px;margin:0 auto;
@@ -602,12 +602,12 @@ body{
 .scr-ni.active{background:rgba(255,255,255,.2);color:#fff;font-weight:600}
 .store-screen-body{padding:9px 10px;background:#f8f9fa}
 .scr-btn-row{display:flex;gap:5px;margin-bottom:8px}
-.scr-btn{font-size:8.5px;padding:3px 8px;border-radius:3px;border:1px solid #ced4da;background:#fff;color:#495057;font-weight:600;font-family:'Outfit',sans-serif}
+.scr-btn{font-size:8.5px;padding:3px 8px;border-radius:3px;border:1px solid #ced4da;background:#fff;color:#495057;font-weight:600;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',Arial,sans-serif}
 .scr-btn.primary{background:#714B67;color:#fff;border-color:#714B67}
 .scr-btn.blue{background:#fff;color:#0369a1;border-color:#bae6fd}
 .scr-form-row{display:flex;align-items:center;gap:6px;margin-bottom:5px}
-.scr-label{font-size:8.5px;color:#9ca3af;min-width:76px;font-family:'Outfit',sans-serif}
-.scr-val{font-size:8.5px;color:#111827;background:#fff;border:1px solid #e5e7eb;border-radius:3px;padding:2px 7px;font-family:'Space Mono',monospace}
+.scr-label{font-size:8.5px;color:#9ca3af;min-width:76px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',Arial,sans-serif}
+.scr-val{font-size:8.5px;color:#111827;background:#fff;border:1px solid #e5e7eb;border-radius:3px;padding:2px 7px;font-family:'SFMono-Regular','Consolas','Courier New',monospace}
 .scr-toggle-row{display:flex;align-items:center;gap:6px;margin-bottom:7px}
 .scr-toggle{width:24px;height:13px;border-radius:7px;position:relative;flex-shrink:0}
 .scr-toggle.on{background:#714B67}
@@ -687,7 +687,7 @@ body{
 .store-detail-tbl td{padding:9px 0;vertical-align:middle}
 .store-detail-tbl td:first-child{color:#6b7280;font-size:12.5px;width:200px}
 .store-detail-tbl td:last-child{color:#111827;font-weight:500}
-.store-detail-tbl code{font-family:'Space Mono',monospace;font-size:11.5px;background:#f3f4f6;padding:2px 7px;border-radius:4px;color:var(--v700)}
+.store-detail-tbl code{font-family:'SFMono-Regular','Consolas','Courier New',monospace;font-size:11.5px;background:#f3f4f6;padding:2px 7px;border-radius:4px;color:var(--v700)}
 .avail{font-size:11.5px;padding:2px 8px;border-radius:4px;margin-right:5px;font-weight:600}
 .avail-yes{background:#dcfce7;color:#15803d}
 .avail-no{background:#fef2f2;color:#dc2626}
@@ -800,7 +800,7 @@ body{
     <div class="store-info-card">
       <div class="store-info-top">
         <div class="store-module-icon">
-          <img src="/home/arunkumarg_219/Downloads/field tracker module/odoo17/auto_field_tracker/static/img/odoovix_logo.svg" alt="Odoovix Logo" style="width:48px;height:48px;border-radius:10px;flex-shrink:0;">
+          <img src="auto_field_tracker/static/img/odoovix_logo.svg" alt="Odoovix Logo" style="width:48px;height:48px;border-radius:10px;flex-shrink:0;">
         </div>
       
         
@@ -867,7 +867,7 @@ body{
   <div class="section-inner">
     <div class="eyebrow eyebrow-a reveal">The Problem</div>
     <h2 class="section-h reveal rd1">Standard Odoo tracking leaves gaps</h2>
-    <p class="section-lead reveal rd2">Out of the box, Odoo only logs changes where a developer manually set <code style="font-family:'Space Mono',monospace;font-size:12px;background:rgba(255,255,255,.1);padding:2px 7px;border-radius:4px;color:var(--v300)">tracking=True</code> per field. Most of your data has no audit trail at all.</p>
+    <p class="section-lead reveal rd2">Out of the box, Odoo only logs changes where a developer manually set <code style="font-family:'SFMono-Regular','Consolas','Courier New',monospace;font-size:12px;background:rgba(255,255,255,.1);padding:2px 7px;border-radius:4px;color:var(--v300)">tracking=True</code> per field. Most of your data has no audit trail at all.</p>
     <div class="ps-grid">
       <div class="ps-card ps-card-bad reveal rd1">
         <div class="ps-head">
@@ -945,7 +945,7 @@ body{
     </div>
 
     <div class="tab-pane" id="t3">
-      <p class="sh-desc">Every change written to a dedicated <code style="font-family:'Space Mono',monospace;font-size:12px;background:#f1f5f9;padding:1px 6px;border-radius:3px">field.tracker.log</code> table. Filter by model, user, date, or field name. Click any row to open the original record.</p>
+      <p class="sh-desc">Every change written to a dedicated <code style="font-family:'SFMono-Regular','Consolas','Courier New',monospace;font-size:12px;background:#f1f5f9;padding:1px 6px;border-radius:3px">field.tracker.log</code> table. Filter by model, user, date, or field name. Click any row to open the original record.</p>
       <div class="shell">
         <div class="topbar"><div class="win-dots"><div class="wd r"></div><div class="wd y"></div><div class="wd g"></div></div><div class="nav-items-o"><div class="ni-o on">Settings</div><div class="ni-o on">Tracker Logs</div></div><div class="av">A</div></div>
         <div class="bc">Settings<span class="bc-sep">›</span>Technical<span class="bc-sep">›</span><span class="bc-cur">Field Tracker Logs</span></div>
@@ -1005,7 +1005,7 @@ body{
     <div class="feat-grid">
       <div class="fc reveal rd1"><div class="fc-icon">🎯</div><h3>Works on any model</h3><p>Sales, Purchases, Inventory, HR, Projects, or your own custom models. If it has a Chatter, it can be tracked from the settings UI.</p></div>
       <div class="fc reveal rd2"><div class="fc-icon">💬</div><h3>Chatter entries</h3><p>Changes post as a before → after table right in the record. No separate window — the full history is always visible inline, instantly.</p></div>
-      <div class="fc reveal rd3"><div class="fc-icon">🗄️</div><h3>Searchable audit log</h3><p>A dedicated <code style="font-family:'Space Mono',monospace;font-size:11px">field.tracker.log</code> table for every change. Filter, search, and jump straight to the affected record.</p></div>
+      <div class="fc reveal rd3"><div class="fc-icon">🗄️</div><h3>Searchable audit log</h3><p>A dedicated <code style="font-family:'SFMono-Regular','Consolas','Courier New',monospace;font-size:11px">field.tracker.log</code> table for every change. Filter, search, and jump straight to the affected record.</p></div>
       <div class="fc reveal rd1"><div class="fc-icon">📎</div><h3>Order line tracking</h3><p>Changes to child lines (order lines, BOM components, timesheets) are logged on the parent Chatter — no separate config required.</p></div>
       <div class="fc reveal rd2"><div class="fc-icon">🔔</div><h3>Follower notifications</h3><p>Optionally email record followers when tracked fields change — great for approval and review workflows that span teams.</p></div>
       <div class="fc reveal rd3"><div class="fc-icon">⚙️</div><h3>Granular control</h3><p>Track all fields or hand-pick specific ones. Toggle create, update, and delete logging independently per model. Pause without deleting.</p></div>
@@ -1025,7 +1025,7 @@ body{
         <div class="step-num">1</div>
         <div class="step-body">
           <h3>Install the module</h3>
-          <p>Add <code style="font-family:'Space Mono',monospace;font-size:13px;background:var(--v100);padding:2px 8px;border-radius:4px;color:var(--v700)">auto_field_tracker</code> to your addons path and install from the Apps menu. Odoo 17, 18, and 19 on both Community and Enterprise. Only dependencies are <code style="font-family:'Space Mono',monospace;font-size:12px">base</code> and <code style="font-family:'Space Mono',monospace;font-size:12px">mail</code>.</p>
+          <p>Add <code style="font-family:'SFMono-Regular','Consolas','Courier New',monospace;font-size:13px;background:var(--v100);padding:2px 8px;border-radius:4px;color:var(--v700)">auto_field_tracker</code> to your addons path and install from the Apps menu. Odoo 17, 18, and 19 on both Community and Enterprise. Only dependencies are <code style="font-family:'SFMono-Regular','Consolas','Courier New',monospace;font-size:12px">base</code> and <code style="font-family:'SFMono-Regular','Consolas','Courier New',monospace;font-size:12px">mail</code>.</p>
         </div>
       </div>
       <div class="step reveal">
@@ -1065,10 +1065,10 @@ body{
     <div class="info-grid">
       <div class="reveal">
         <table class="info-tbl">
-          <tr><td>Module name</td><td><span style="font-family:'Space Mono',monospace;font-size:13px">auto_field_tracker</span></td></tr>
+          <tr><td>Module name</td><td><span style="font-family:'SFMono-Regular','Consolas','Courier New',monospace;font-size:13px">auto_field_tracker</span></td></tr>
           <tr><td>Version</td><td>17.0.1.0.0</td></tr>
           <tr><td>Odoo versions</td><td>17 · 18 · 19 (CE &amp; EE)</td></tr>
-          <tr><td>Dependencies</td><td><span style="font-family:'Space Mono',monospace;font-size:13px">base · mail</span></td></tr>
+          <tr><td>Dependencies</td><td><span style="font-family:'SFMono-Regular','Consolas','Courier New',monospace;font-size:13px">base · mail</span></td></tr>
           <tr><td>License</td><td>OPL-1</td></tr>
           <tr><td>Auto-install</td><td>No</td></tr>
           <tr><td>Author</td><td>Odoovix</td></tr>
