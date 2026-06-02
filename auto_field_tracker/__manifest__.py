@@ -19,7 +19,7 @@ Main capabilities:
 - Skip transient, binary, internal mail, and technical models automatically.
     """,
     'author': 'Odoovix',
-    'website': 'https://odoovix.com',
+   'website': 'Odoovix',
     'support': 'odoovix@gmail.com',
     'depends': [
         'base',
