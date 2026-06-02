@@ -21,8 +21,6 @@ Main capabilities:
     'author': 'Odoovix',
     'website': 'https://odoovix.com',
     'support': 'support@odoovix.com',
-    'price': 99.0,
-    'currency': 'USD',
     'depends': [
         'base',
         'mail',
