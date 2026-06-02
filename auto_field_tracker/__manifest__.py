@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Auto Field Tracker',
-    'version': '17.0.1.0.0',
+    'version': '17.0.1.0.1',
     'category': 'Technical',
     'summary': 'Track field and One2many changes in chatter with searchable audit logs',
     'description': """
