@@ -19,7 +19,7 @@ Main capabilities:
 - Skip transient, binary, internal mail, and technical models automatically.
     """,
     'author': 'Odoovix',
-    'website': 'Odoovix',
+    'website': 'https://apps.odoo.com/apps/modules/browse?author=Odoovix',
     'support': 'support@odoovix.com',
     'depends': [
         'base',
