@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Auto Field Tracker',
-    'version': '17.0.1.0.1',
+    'version': '17.0.1.0.0',
     'category': 'Technical',
     'summary': 'Track field and One2many changes in chatter with searchable audit logs',
     'description': """
@@ -36,10 +36,11 @@ Main capabilities:
         'web.assets_backend': [
             'auto_field_tracker/static/description/field_tracker.css',
         ],
+      
     },
-    'images': ['static/description/banner.png'],
     'installable': True,
     'auto_install': False,
     'application': True,
+    'images': ['static/description/img/1.png'],
     'license': 'OPL-1',
 }
