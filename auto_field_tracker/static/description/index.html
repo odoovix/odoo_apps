@@ -1,662 +1,96 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Auto Field Tracker</title>
-<style>
-:root{
-  --bg:#08111f;
-  --bg-soft:#0f1c31;
-  --panel:#12233d;
-  --line:rgba(255,255,255,.10);
-  --text:#eef4ff;
-  --muted:rgba(238,244,255,.72);
-  --primary:#1f8cff;
-  --secondary:#11c98f;
-  --accent:#ffb44d;
-  --shadow:0 24px 60px rgba(0,0,0,.28);
-}
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
-body{
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
-  color:var(--text);
-  background:
-    radial-gradient(circle at top left, rgba(31,140,255,.16), transparent 28%),
-    radial-gradient(circle at top right, rgba(17,201,143,.14), transparent 25%),
-    linear-gradient(180deg, #08111f 0%, #0d1830 100%);
-}
-img{display:block;max-width:100%}
-.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
-.section{padding:72px 0}
-.hero{
-  position:relative;
-  overflow:hidden;
-  border-bottom:1px solid var(--line);
-}
-.hero-grid{
-  display:grid;
-  grid-template-columns:minmax(0,1fr) minmax(520px,620px);
-  gap:42px;
-  align-items:center;
-  min-height:860px;
-  padding:48px 0 60px;
-}
-.badge{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  padding:10px 14px;
-  border-radius:999px;
-  border:1px solid var(--line);
-  background:rgba(255,255,255,.04);
-  color:var(--muted);
-  font-size:12px;
-  font-weight:700;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-}
-.badge-dot{
-  width:9px;
-  height:9px;
-  border-radius:50%;
-  background:linear-gradient(135deg,var(--primary),var(--secondary));
-}
-.kicker{
-  margin:22px 0 12px;
-  color:var(--accent);
-  font-size:13px;
-  font-weight:800;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-}
-h1{
-  margin:0;
-  font-size:clamp(42px,6vw,74px);
-  line-height:1.02;
-  letter-spacing:-.05em;
-}
-.grad{
-  background:linear-gradient(135deg,#ffffff 0%, #dbe9ff 35%, #1f8cff 72%, #11c98f 100%);
-  -webkit-background-clip:text;
-  background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-.lead{
-  margin:18px 0 0;
-  max-width:620px;
-  font-size:17px;
-  line-height:1.8;
-  color:var(--muted);
-}
-.pills{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin:26px 0 0;
-}
-.pill{
-  padding:10px 14px;
-  border-radius:999px;
-  border:1px solid var(--line);
-  background:linear-gradient(135deg, rgba(31,140,255,.14), rgba(17,201,143,.10));
-  font-size:13px;
-  font-weight:700;
-  color:#fff;
-}
-.metrics{
-  margin-top:28px;
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:14px;
-}
-.metric{
-  padding:18px;
-  border-radius:22px;
-  border:1px solid var(--line);
-  background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
-  box-shadow:var(--shadow);
-}
-.metric b{
-  display:block;
-  font-size:28px;
-  letter-spacing:-.04em;
-}
-.metric span{
-  display:block;
-  margin-top:6px;
-  color:var(--muted);
-  font-size:12px;
-  line-height:1.5;
-}
-.visual{
-  border-radius:34px;
-  border:1px solid var(--line);
-  background:linear-gradient(180deg, rgba(18,35,61,.96), rgba(8,17,31,.98));
-  padding:16px;
-  box-shadow:var(--shadow);
-}
-.window-bar{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  margin-bottom:14px;
-  padding:12px 14px;
-  border-radius:18px;
-  border:1px solid var(--line);
-  background:rgba(255,255,255,.04);
-}
-.window-dots{display:flex;gap:8px}
-.window-dots i{width:11px;height:11px;border-radius:50%}
-.window-dots i:nth-child(1){background:#ff5f56}
-.window-dots i:nth-child(2){background:#ffbd2e}
-.window-dots i:nth-child(3){background:#27c93f}
-.window-title{
-  font-size:13px;
-  font-weight:800;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  color:rgba(255,255,255,.78);
-}
-.window-tag{
-  font-size:12px;
-  font-weight:700;
-  color:rgba(255,255,255,.54);
-}
-.slider{
-  position:relative;
-  overflow:hidden;
-  min-height:500px;
-  border-radius:28px;
-  border:1px solid rgba(255,255,255,.08);
-  background:
-    radial-gradient(circle at top right, rgba(31,140,255,.18), transparent 26%),
-    linear-gradient(180deg, #162744 0%, #0d1830 100%);
-}
-.track{
-  display:flex;
-  width:300%;
-  animation:slide 18s infinite cubic-bezier(.7,0,.2,1);
-}
-.slide{
-  width:100%;
-  flex:0 0 100%;
-  padding:26px;
-}
-.slide-shell{
-  display:grid;
-  grid-template-columns:1.6fr .8fr;
-  gap:18px;
-  align-items:stretch;
-}
-.slide-main{
-  padding:14px;
-  border-radius:24px;
-  background:rgba(255,255,255,.07);
-  border:1px solid rgba(255,255,255,.09);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.05);
-}
-.slide-main img{
-  width:100%;
-  height:320px;
-  object-fit:cover;
-  object-position:top center;
-  border-radius:18px;
-  border:1px solid rgba(255,255,255,.08);
-  background:#fff;
-}
-.slide-side{
-  display:grid;
-  grid-template-rows:auto 1fr;
-  gap:14px;
-}
-.slide-note{
-  padding:18px;
-  border-radius:22px;
-  background:linear-gradient(180deg, rgba(10,22,41,.88), rgba(14,29,50,.92));
-  border:1px solid rgba(255,255,255,.08);
-}
-.slide-note b{
-  display:block;
-  font-size:13px;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:var(--accent);
-}
-.slide-note h3{
-  margin:10px 0 8px;
-  font-size:26px;
-  line-height:1.05;
-  letter-spacing:-.04em;
-}
-.slide-note p{
-  margin:0;
-  color:var(--muted);
-  font-size:13px;
-  line-height:1.7;
-}
-.slide-mini{
-  display:grid;
-  grid-template-rows:1fr 1fr;
-  gap:14px;
-}
-.mini-card{
-  padding:14px;
-  border-radius:22px;
-  background:rgba(255,255,255,.06);
-  border:1px solid rgba(255,255,255,.08);
-}
-.mini-card img{
-  width:100%;
-  height:120px;
-  object-fit:cover;
-  object-position:top center;
-  border-radius:14px;
-  border:1px solid rgba(255,255,255,.08);
-  background:#fff;
-}
-.mini-label{
-  margin-top:10px;
-  font-size:11px;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  color:rgba(255,255,255,.76);
-}
-@keyframes slide{
-  0%,25%{transform:translateX(0)}
-  33%,58%{transform:translateX(-33.3333%)}
-  66%,91%{transform:translateX(-66.6666%)}
-  100%{transform:translateX(0)}
-}
-.chips{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:10px;
-  margin-top:14px;
-  color:var(--muted);
-  font-size:12px;
-}
-.chip{
-  padding:7px 11px;
-  border-radius:999px;
-  border:1px solid var(--line);
-  background:rgba(255,255,255,.04);
-}
-.section-head{
-  margin-bottom:28px;
-}
-.eyebrow{
-  color:var(--accent);
-  font-size:12px;
-  font-weight:800;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-}
-.title{
-  margin:8px 0 0;
-  font-size:clamp(28px,4vw,46px);
-  line-height:1.08;
-  letter-spacing:-.04em;
-}
-.copy{
-  margin:10px 0 0;
-  max-width:760px;
-  color:var(--muted);
-  font-size:16px;
-  line-height:1.8;
-}
-.cards{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:16px;
-}
-.card{
-  min-height:172px;
-  padding:22px;
-  border-radius:22px;
-  border:1px solid var(--line);
-  background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-  box-shadow:var(--shadow);
-}
-.icon{
-  width:48px;
-  height:48px;
-  display:grid;
-  place-items:center;
-  margin-bottom:16px;
-  border-radius:16px;
-  background:linear-gradient(135deg,var(--primary),var(--secondary));
-  font-size:20px;
-  font-weight:900;
-}
-.card h3{margin:0 0 8px;font-size:18px}
-.card p{margin:0;color:var(--muted);font-size:14px;line-height:1.75}
-.split{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:22px;
-}
-.panel{
-  padding:28px;
-  border-radius:28px;
-  border:1px solid var(--line);
-  background:linear-gradient(180deg, rgba(18,35,61,.96), rgba(8,17,31,.98));
-  box-shadow:var(--shadow);
-}
-.panel.alt{
-  background:linear-gradient(135deg, rgba(31,140,255,.16), rgba(17,201,143,.10));
-}
-.list{
-  display:grid;
-  gap:12px;
-  margin-top:18px;
-}
-.item{
-  display:flex;
-  gap:12px;
-  align-items:flex-start;
-  padding:14px;
-  border-radius:16px;
-  border:1px solid rgba(255,255,255,.07);
-  background:rgba(255,255,255,.04);
-}
-.item i{
-  width:28px;
-  height:28px;
-  flex:0 0 28px;
-  display:grid;
-  place-items:center;
-  border-radius:10px;
-  background:rgba(255,255,255,.08);
-  font-style:normal;
-  font-weight:900;
-}
-.item b{display:block;margin-bottom:3px}
-.item span{display:block;color:var(--muted);font-size:13px;line-height:1.6}
-.timeline{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:14px;
-}
-.step{
-  padding:20px;
-  border-radius:20px;
-  border:1px solid var(--line);
-  background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-}
-.step .n{
-  width:34px;
-  height:34px;
-  display:grid;
-  place-items:center;
-  margin-bottom:14px;
-  border-radius:50%;
-  background:linear-gradient(135deg,var(--primary),var(--secondary));
-  font-weight:900;
-}
-.step h4{margin:0 0 6px;font-size:16px}
-.step p{margin:0;color:var(--muted);font-size:13px;line-height:1.7}
-.gallery{
-  display:grid;
-  grid-template-columns:1.1fr .9fr;
-  gap:18px;
-}
-.gallery-main,.gallery-side .frame{
-  padding:18px;
-  border-radius:26px;
-  border:1px solid var(--line);
-  background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-  box-shadow:var(--shadow);
-}
-.gallery-side{
-  display:grid;
-  gap:18px;
-}
-.gallery img{
-  border-radius:18px;
-  border:1px solid rgba(255,255,255,.08);
-}
-.cta{
-  text-align:center;
-  padding:36px 24px;
-  border-radius:30px;
-  border:1px solid var(--line);
-  background:linear-gradient(135deg, rgba(31,140,255,.16), rgba(17,201,143,.10), rgba(255,180,77,.10));
-}
-.cta h2{
-  margin:0 0 12px;
-  font-size:clamp(28px,4vw,42px);
-  letter-spacing:-.04em;
-}
-.cta p{
-  margin:0;
-  color:var(--muted);
-  font-size:15px;
-  line-height:1.8;
-}
-@media (max-width:1080px){
-  .hero-grid,.split,.gallery{grid-template-columns:1fr}
-  .cards,.timeline{grid-template-columns:repeat(2,1fr)}
-  .metrics{grid-template-columns:1fr}
-  .hero-grid{min-height:auto}
-  .slider{min-height:auto}
-  .slide-shell{grid-template-columns:1fr}
-  .slide-main img{height:auto}
-  .slide-mini{grid-template-columns:1fr 1fr;grid-template-rows:none}
-  .mini-card img{height:auto}
-}
-@media (max-width:640px){
-  .section{padding:54px 0}
-  .cards,.timeline{grid-template-columns:1fr}
-  .metrics{grid-template-columns:1fr}
-  h1{font-size:42px}
-  .lead{font-size:15px}
-  .slide{padding:16px}
-  .slide-mini{grid-template-columns:1fr;grid-template-rows:none}
-}
-</style>
-</head>
-<body>
+<section class="oe_container" style="max-width: 1100px; margin: 0 auto;">
+    <div class="oe_row oe_spaced" style="margin-bottom: 24px;">
+        <img src="banner.png" alt="Auto Field Tracker Banner" style="display:block; width:100%; border-radius:12px; border:1px solid #d9d9d9;"/>
+    </div>
 
-<section class="hero">
-  <div class="wrap">
-    <div class="hero-grid">
-      <div>
-        <div class="badge"><span class="badge-dot"></span> Premium Odoo Apps Theme</div>
-        <div class="kicker">Track any field change without code</div>
-        <h1><span class="grad">Auto Field Tracker</span></h1>
-        <p class="lead">
-          Turn every important record change into a clean audit story. Track create, update, delete, and line changes with a polished no-code workflow built for serious Odoo deployments.
+    <div class="oe_row oe_spaced" style="background:#f8fbff; border:1px solid #d9e7f7; border-radius:12px; padding:32px 24px; margin-bottom:24px;">
+        <h1 class="oe_slogan" style="color:#1f3c88; margin-bottom:10px;">Auto Field Tracker</h1>
+        <h2 class="oe_slogan" style="font-size:24px; margin-top:0;">Track Any Field Change Without Code</h2>
+        <p style="font-size:16px; line-height:1.8; color:#444; text-align:center; max-width:900px; margin:0 auto 18px;">
+            Track create, update, delete, and One2many field changes in Odoo with a clear chatter-based audit trail and searchable logs.
         </p>
-        <div class="pills">
-          <span class="pill">No code setup</span>
-          <span class="pill">Chatter audit trail</span>
-          <span class="pill">Searchable logs</span>
-          <span class="pill">One2many tracking</span>
-          <span class="pill">Premium storefront</span>
+        <div style="text-align:center;">
+            <span style="display:inline-block; margin:6px; padding:10px 16px; background:#e8f1ff; color:#234a9b; border-radius:999px; font-weight:600;">No code setup</span>
+            <span style="display:inline-block; margin:6px; padding:10px 16px; background:#e8fff5; color:#136b4f; border-radius:999px; font-weight:600;">Chatter audit trail</span>
+            <span style="display:inline-block; margin:6px; padding:10px 16px; background:#fff3e3; color:#9a5b00; border-radius:999px; font-weight:600;">Searchable logs</span>
+            <span style="display:inline-block; margin:6px; padding:10px 16px; background:#f0ecff; color:#5a3bb2; border-radius:999px; font-weight:600;">One2many tracking</span>
         </div>
-        <div class="metrics">
-          <div class="metric"><b>3</b><span>live screenshots rotating in the first banner automatically.</span></div>
-          <div class="metric"><b>4</b><span>simple steps from install to production tracking.</span></div>
-          <div class="metric"><b>100%</b><span>static Odoo Apps friendly HTML with no JavaScript.</span></div>
-        </div>
-      </div>
+    </div>
 
-      <div class="visual">
-        <div class="window-bar">
-          <div class="window-dots"><i></i><i></i><i></i></div>
-          <div class="window-title">Feature Preview</div>
-          <div class="window-tag">Auto Field Tracker</div>
-        </div>
-        <div class="slider">
-          <div class="track">
-            <div class="slide">
-              <div class="slide-shell">
-                <div class="slide-main"><img src="img/1.png" alt="Auto Field Tracker dashboard preview"/></div>
-                <div class="slide-side">
-                  <div class="slide-note">
-                    <b>Desktop View</b>
-                    <h3>Wide audit workspace</h3>
-                    <p>The banner now feels like a desktop application preview instead of a phone-sized frame.</p>
-                  </div>
-                  <div class="slide-mini">
-                    <div class="mini-card">
-                      <img src="img/2.png" alt="Auto Field Tracker configuration preview"/>
-                      <div class="mini-label">Config setup</div>
-                    </div>
-                    <div class="mini-card">
-                      <img src="img/3.png" alt="Auto Field Tracker logs preview"/>
-                      <div class="mini-label">Tracking logs</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+    <div class="oe_row oe_spaced" style="margin-bottom: 24px;">
+        <h2 style="text-align:center; font-size:30px; margin-bottom:12px;">Key Features</h2>
+        <p style="text-align:center; color:#555; max-width:850px; margin:0 auto 26px;">
+            Built for teams that need field-level visibility without adding custom code to every model.
+        </p>
+        <div class="oe_span6" style="margin-bottom:18px;">
+            <div style="border:1px solid #e1e1e1; border-radius:10px; padding:20px; min-height:170px; background:#fff;">
+                <h3 style="margin-top:0;">Track record lifecycle changes</h3>
+                <p style="margin-bottom:0; color:#555;">Capture create, update, and delete operations directly in the record history.</p>
             </div>
-            <div class="slide">
-              <div class="slide-shell">
-                <div class="slide-main"><img src="img/2.png" alt="Auto Field Tracker configuration screen"/></div>
-                <div class="slide-side">
-                  <div class="slide-note">
-                    <b>Configuration</b>
-                    <h3>Fast setup flow</h3>
-                    <p>Show model selection and field setup in a cleaner framed composition with stronger hierarchy.</p>
-                  </div>
-                  <div class="slide-mini">
-                    <div class="mini-card">
-                      <img src="img/1.png" alt="Auto Field Tracker form preview"/>
-                      <div class="mini-label">Record form</div>
-                    </div>
-                    <div class="mini-card">
-                      <img src="img/3.png" alt="Auto Field Tracker audit log preview"/>
-                      <div class="mini-label">Audit history</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+        </div>
+        <div class="oe_span6" style="margin-bottom:18px;">
+            <div style="border:1px solid #e1e1e1; border-radius:10px; padding:20px; min-height:170px; background:#fff;">
+                <h3 style="margin-top:0;">Works with chatter-enabled models</h3>
+                <p style="margin-bottom:0; color:#555;">Choose the model and fields to monitor from the Odoo interface.</p>
             </div>
-            <div class="slide">
-              <div class="slide-shell">
-                <div class="slide-main"><img src="img/3.png" alt="Auto Field Tracker log screen"/></div>
-                <div class="slide-side">
-                  <div class="slide-note">
-                    <b>Audit Trail</b>
-                    <h3>Logs users can review</h3>
-                    <p>The slide uses supporting previews so the banner feels designed, not just three plain screenshots.</p>
-                  </div>
-                  <div class="slide-mini">
-                    <div class="mini-card">
-                      <img src="img/1.png" alt="Auto Field Tracker main screen preview"/>
-                      <div class="mini-label">Main screen</div>
-                    </div>
-                    <div class="mini-card">
-                      <img src="img/2.png" alt="Auto Field Tracker setup preview"/>
-                      <div class="mini-label">Model setup</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+        </div>
+        <div class="oe_span6" style="margin-bottom:18px;">
+            <div style="border:1px solid #e1e1e1; border-radius:10px; padding:20px; min-height:170px; background:#fff;">
+                <h3 style="margin-top:0;">Searchable audit logs</h3>
+                <p style="margin-bottom:0; color:#555;">Review changes later from a dedicated log view across tracked models.</p>
             </div>
-          </div>
         </div>
-        <div class="chips">
-          <span class="chip">Animated image slider</span>
-          <span class="chip">Clean first banner</span>
-          <span class="chip">No JavaScript needed</span>
+        <div class="oe_span6" style="margin-bottom:18px;">
+            <div style="border:1px solid #e1e1e1; border-radius:10px; padding:20px; min-height:170px; background:#fff;">
+                <h3 style="margin-top:0;">One2many line tracking</h3>
+                <p style="margin-bottom:0; color:#555;">Preserve important line-level updates that are often missed in standard flows.</p>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-</section>
 
-<section class="section">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">Why this page looks stronger</div>
-      <h2 class="title">A better first impression for your module</h2>
-      <p class="copy">
-        The top banner now works like a product landing page: bold headline, strong metrics, and a rotating screenshot deck that immediately shows the module instead of a single static image.
-      </p>
+    <div class="oe_row oe_spaced" style="background:#fcfcfc; border:1px solid #e5e5e5; border-radius:12px; padding:28px 20px; margin-bottom:24px;">
+        <h2 style="text-align:center; font-size:30px; margin-bottom:10px;">Desktop Preview</h2>
+        <p style="text-align:center; color:#555; max-width:860px; margin:0 auto 24px;">
+            A wide desktop-style screenshot presentation for Odoo Apps Store, without mobile-style banner framing.
+        </p>
+        <img src="img/1.png" alt="Auto Field Tracker Desktop Preview" style="display:block; width:100%; border-radius:10px; border:1px solid #d9d9d9;"/>
     </div>
-    <div class="cards">
-      <div class="card"><div class="icon">01</div><h3>Premium hero section</h3><p>A full-width first banner with stronger layout, better hierarchy, and a storefront look.</p></div>
-      <div class="card"><div class="icon">02</div><h3>Auto image slider</h3><p>Your three screenshots now rotate automatically in the hero so visitors see more of the module at once.</p></div>
-      <div class="card"><div class="icon">03</div><h3>Clear value story</h3><p>The message now explains setup speed, audit visibility, and production use directly in the first screen.</p></div>
-      <div class="card"><div class="icon">04</div><h3>Store-safe markup</h3><p>The page stays compatible with Odoo Apps by using static HTML and CSS only.</p></div>
-    </div>
-  </div>
-</section>
 
-<section class="section">
-  <div class="wrap">
-    <div class="split">
-      <div class="panel">
-        <div class="eyebrow">Key features</div>
-        <h2 class="title">Built for clean audit tracking</h2>
-        <div class="list">
-          <div class="item"><i>1</i><div><b>Track create, update, and delete</b><span>Capture the full record history without custom Python changes.</span></div></div>
-          <div class="item"><i>2</i><div><b>Works with chatter-enabled models</b><span>Monitor the business objects your users already work with every day.</span></div></div>
-          <div class="item"><i>3</i><div><b>Searchable audit logs</b><span>Review field-level changes later from a dedicated logging view.</span></div></div>
-          <div class="item"><i>4</i><div><b>One2many line tracking</b><span>Preserve line changes that often disappear in standard workflows.</span></div></div>
+    <div class="oe_row oe_spaced" style="margin-bottom:24px;">
+        <div class="oe_span6" style="margin-bottom:18px;">
+            <h3 style="text-align:center;">Configuration Screen</h3>
+            <img src="img/2.png" alt="Auto Field Tracker Configuration" style="display:block; width:100%; border-radius:10px; border:1px solid #d9d9d9;"/>
         </div>
-      </div>
-      <div class="panel alt">
-        <div class="eyebrow">How it works</div>
-        <h2 class="title">Four steps from install to go-live</h2>
-        <div class="list">
-          <div class="item"><i>1</i><div><b>Install module</b><span>Add Auto Field Tracker to your Odoo instance.</span></div></div>
-          <div class="item"><i>2</i><div><b>Select model</b><span>Choose the business record type you want to monitor.</span></div></div>
-          <div class="item"><i>3</i><div><b>Pick fields</b><span>Select all relevant fields or only the critical ones.</span></div></div>
-          <div class="item"><i>4</i><div><b>Start tracking</b><span>Changes begin appearing automatically in chatter and logs.</span></div></div>
+        <div class="oe_span6" style="margin-bottom:18px;">
+            <h3 style="text-align:center;">Tracking Logs</h3>
+            <img src="img/3.png" alt="Auto Field Tracker Logs" style="display:block; width:100%; border-radius:10px; border:1px solid #d9d9d9;"/>
         </div>
-      </div>
     </div>
-  </div>
-</section>
 
-<section class="section">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">Process flow</div>
-      <h2 class="title">Simple enough for fast setup</h2>
-      <p class="copy">The module setup stays compact and operational: install, configure, choose fields, and start reviewing changes.</p>
+    <div class="oe_row oe_spaced" style="background:#f8fbff; border:1px solid #d9e7f7; border-radius:12px; padding:28px 24px; margin-bottom:24px;">
+        <h2 style="text-align:center; font-size:30px; margin-bottom:14px;">How It Works</h2>
+        <div class="oe_span3" style="text-align:center; margin-bottom:18px;">
+            <div style="font-size:34px; font-weight:700; color:#1f3c88;">1</div>
+            <div style="font-weight:600; margin-top:8px;">Install Module</div>
+        </div>
+        <div class="oe_span3" style="text-align:center; margin-bottom:18px;">
+            <div style="font-size:34px; font-weight:700; color:#1f3c88;">2</div>
+            <div style="font-weight:600; margin-top:8px;">Select Model</div>
+        </div>
+        <div class="oe_span3" style="text-align:center; margin-bottom:18px;">
+            <div style="font-size:34px; font-weight:700; color:#1f3c88;">3</div>
+            <div style="font-weight:600; margin-top:8px;">Choose Fields</div>
+        </div>
+        <div class="oe_span3" style="text-align:center; margin-bottom:18px;">
+            <div style="font-size:34px; font-weight:700; color:#1f3c88;">4</div>
+            <div style="font-weight:600; margin-top:8px;">Start Tracking</div>
+        </div>
     </div>
-    <div class="timeline">
-      <div class="step"><div class="n">1</div><h4>Install</h4><p>Deploy the module and open its configuration screen.</p></div>
-      <div class="step"><div class="n">2</div><h4>Configure</h4><p>Select the model to monitor from the tracker setup.</p></div>
-      <div class="step"><div class="n">3</div><h4>Select fields</h4><p>Enable the fields that need an audit trail.</p></div>
-      <div class="step"><div class="n">4</div><h4>Review logs</h4><p>Inspect changes directly from chatter and the tracking log view.</p></div>
-    </div>
-  </div>
-</section>
 
-<section class="section">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">Screenshots</div>
-      <h2 class="title">Your module visuals stay visible below the banner too</h2>
-      <p class="copy">The hero slider handles the first impression, and the gallery keeps the individual screenshots accessible further down the page.</p>
+    <div class="oe_row oe_spaced" style="text-align:center; background:#1f3c88; color:#fff; border-radius:12px; padding:26px 20px;">
+        <h2 style="color:#fff; margin-bottom:10px;">Odoo Apps Store Safe Layout</h2>
+        <p style="margin:0; font-size:15px; line-height:1.8;">
+            This description uses a simple top banner and standard screenshot sections so it renders correctly on the Odoo Apps Store.
+        </p>
     </div>
-    <div class="gallery">
-      <div class="gallery-main"><img src="img/1.png" alt="Auto Field Tracker screenshot main"/></div>
-      <div class="gallery-side">
-        <div class="frame"><img src="img/2.png" alt="Auto Field Tracker screenshot 2"/></div>
-        <div class="frame"><img src="img/3.png" alt="Auto Field Tracker screenshot 3"/></div>
-      </div>
-    </div>
-  </div>
 </section>
-
-<section class="section">
-  <div class="wrap">
-    <div class="cta">
-      <h2>Cleaner banner. Stronger slide showcase.</h2>
-      <p>This description page now presents Auto Field Tracker with a more premium first screen and a better rotating screenshot banner for Odoo Apps.</p>
-    </div>
-  </div>
-</section>
-
-</body>
-</html>
