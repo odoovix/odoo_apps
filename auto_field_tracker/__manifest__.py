@@ -36,6 +36,7 @@ Main capabilities:
         'web.assets_backend': [
             'auto_field_tracker/static/description/field_tracker.css',
         ],
+      
     },
     'installable': True,
     'auto_install': False,
