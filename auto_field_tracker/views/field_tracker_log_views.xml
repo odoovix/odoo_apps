@@ -62,7 +62,7 @@
         <field name="name">field.tracker.log.list</field>
         <field name="model">field.tracker.log</field>
         <field name="arch" type="xml">
-            <tree string="Field Change Logs"
+            <list string="Field Change Logs"
                   create="false" edit="false"
                   decoration-success="change_type == 'create'"
                   decoration-warning="change_type == 'write'"
@@ -82,7 +82,7 @@
                         string="Open"
                         type="object"
                         icon="fa-external-link"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -127,7 +127,7 @@
     <record id="action_field_tracker_log" model="ir.actions.act_window">
         <field name="name">Field Change History</field>
         <field name="res_model">field.tracker.log</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="context">{}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">

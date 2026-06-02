@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import logging
-from markupsafe import escape
+from markupsafe import Markup, escape
 from odoo import models, fields, api, _
 
 _logger = logging.getLogger(__name__)
@@ -228,8 +228,7 @@ class FieldTrackerService(models.AbstractModel):
                 body = self._build_chatter_body(changes, change_type)
                 try:
                     record.with_context(aft_skip_tracking=True).message_post(
-                        body=body,
-                        body_is_html=True,
+                        body=Markup(body),
                         message_type='notification',
                         subtype_xmlid='mail.mt_comment' if config.notify_followers else 'mail.mt_note',
                     )
@@ -308,8 +307,7 @@ class FieldTrackerService(models.AbstractModel):
                     body = self._build_chatter_body(changes, 'write')
                     try:
                         parent.with_context(aft_skip_tracking=True).message_post(
-                            body=body,
-                            body_is_html=True,
+                            body=Markup(body),
                             message_type='notification',
                             subtype_xmlid='mail.mt_comment' if config.notify_followers else 'mail.mt_note',
                         )
@@ -382,8 +380,7 @@ class FieldTrackerService(models.AbstractModel):
                     body = self._build_chatter_body(changes, 'create')
                     try:
                         parent.with_context(aft_skip_tracking=True).message_post(
-                            body=body,
-                            body_is_html=True,
+                            body=Markup(body),
                             message_type='notification',
                             subtype_xmlid='mail.mt_note',
                         )
@@ -421,8 +418,7 @@ class FieldTrackerService(models.AbstractModel):
                     body = self._build_chatter_body(changes, 'unlink')
                     try:
                         parent.with_context(aft_skip_tracking=True).message_post(
-                            body=body,
-                            body_is_html=True,
+                            body=Markup(body),
                             message_type='notification',
                             subtype_xmlid='mail.mt_note',
                         )
@@ -492,8 +488,7 @@ class FieldTrackerService(models.AbstractModel):
                 body = self._build_chatter_body(changes, 'create')
                 try:
                     record.with_context(aft_skip_tracking=True).message_post(
-                        body=body,
-                        body_is_html=True,
+                        body=Markup(body),
                         message_type='notification',
                         subtype_xmlid='mail.mt_note',
                     )
