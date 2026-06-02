@@ -301,8 +301,8 @@ body{
   color:#fff;
   box-shadow:0 4px 16px rgba(107,63,209,.35);
 }
-.tab-pane{display:none}
-.tab-pane.active{display:block;animation:tab-in .3s ease}
+.tab-pane{display:block}
+.tab-pane.active{display:block;animation:none}
 @keyframes tab-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 .sh-desc{font-size:13.5px;color:var(--v600);margin-bottom:20px;line-height:1.75;opacity:.85}
 .sh-desc strong{color:var(--v700);font-weight:700}
@@ -519,8 +519,8 @@ body{
 .cta-contact a:hover{color:var(--a200)}
 
 /* ──── SCROLL REVEAL ──── */
-.reveal{opacity:0;transform:translateY(30px);transition:opacity .65s ease,transform .65s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal{opacity:1;transform:none;transition:none}
+.reveal.visible{opacity:1;transform:none}
 .rd1{transition-delay:.08s}.rd2{transition-delay:.18s}.rd3{transition-delay:.28s}
 
 @media(max-width:680px){
@@ -847,15 +847,15 @@ body{
     <div class="stat-strip">
     
       <div class="stat-cell">
-        <div class="stat-n" id="s1">0<sup>lines</sup></div>
+        <div class="stat-n" id="s1">6<sup>+</sup></div>
         <div class="stat-l">to change in your existing modules</div>
       </div>
       <div class="stat-cell">
-        <div class="stat-n" id="s2">0<sup>+</sup></div>
+        <div class="stat-n" id="s2">10<sup>+</sup></div>
         <div class="stat-l">field types with human-readable values</div>
       </div>
       <div class="stat-cell">
-        <div class="stat-n" id="s3">0</div>
+        <div class="stat-n" id="s3">3</div>
         <div class="stat-l">events logged: create · update · delete</div>
       </div>
     </div>
