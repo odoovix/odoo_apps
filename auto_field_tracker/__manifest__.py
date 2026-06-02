@@ -1,0 +1,44 @@
+# -*- coding: utf-8 -*-
+{
+    'name': 'Auto Field Tracker',
+    'version': '17.0.1.0.0',
+    'category': 'Technical',
+    'summary': 'Track field and One2many changes in chatter with searchable audit logs',
+    'description': """
+Auto Field Tracker
+==================
+
+Auto Field Tracker by Odoovix lets administrators configure audit tracking for chatter-enabled Odoo models without changing source code.
+
+Main capabilities:
+- Track create, write, and delete operations per model.
+- Track all eligible fields or selected fields only.
+- Log old and new values in the record chatter.
+- Store searchable audit history in a dedicated log model.
+- Track selected One2many child-line changes on the parent record.
+- Skip transient, binary, internal mail, and technical models automatically.
+    """,
+    'author': 'Odoovix',
+    'website': 'https://odoovix.com',
+    'support': 'odoovix@gmail.com',
+    'depends': [
+        'base',
+        'mail',
+    ],
+    'data': [
+        'security/ir.model.access.csv',
+        'views/field_tracker_config_views.xml',
+        'views/field_tracker_log_views.xml',
+        'views/res_config_settings_views.xml',
+        'data/field_tracker_data.xml',
+    ],
+    'assets': {
+        'web.assets_backend': [
+            'auto_field_tracker/static/description/field_tracker.css',
+        ],
+    },
+    'installable': True,
+    'auto_install': False,
+    'application': True,
+    'license': 'OPL-1',
+}
