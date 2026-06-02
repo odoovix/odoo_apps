@@ -39,6 +39,7 @@ Main capabilities:
     },
     'installable': True,
     'auto_install': False,
+    'images': ['static/description/banner.png'],
     'application': True,
     'license': 'OPL-1',
 }
