@@ -3,7 +3,7 @@
     'name': 'Auto Field Tracker',
     'version': '19.0.1.0.0',
     'category': 'Technical',
-    'summary': 'Track field and One2many changes in chatter with searchable audit logs',
+    'summary': 'Field Tracker | Audit Trail | Audit Log | Field Change History | Chatter Log | Record Tracking | Data Tracking | Change History | Field Change Log | Field Monitoring | Auto Track | Field Update Tracker',
     'description': """
 Auto Field Tracker
 ==================
