@@ -39,7 +39,7 @@ Main capabilities:
     },
     'installable': True,
     'auto_install': False,
-     'images': ['static/description/auto_field_tracker_banner_v3.svg'],
+     'images': ['static/description/auto_field_tracker_banner_v3.png'],
     'application': True,
     'license': 'LGPL-3',
 }
