@@ -41,5 +41,5 @@ Main capabilities:
     'auto_install': False,
      'images': ['static/description/banner.png'],
     'application': True,
-    'license': 'OPL-1',
+    'license': 'LGPL-3',
 }
