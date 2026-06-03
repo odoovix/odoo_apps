@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from markupsafe import Markup
+
 from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
 
@@ -181,8 +183,7 @@ class FieldTrackerConfig(models.Model):
                 }
             }
         records.message_post(
-            body=_('🔍 <strong>Auto Field Tracker</strong>: Test log from tracker config.'),
-            body_is_html=True,
+            body=Markup(_('🔍 <strong>Auto Field Tracker</strong>: Test log from tracker config.')),
             message_type='notification',
             subtype_xmlid='mail.mt_note',
         )

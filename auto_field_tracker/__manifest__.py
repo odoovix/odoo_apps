@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Auto Field Tracker',
-    'version': '17.0.1.0.1',
+    'version': '19.0.1.0.0',
     'category': 'Technical',
     'summary': 'Track field and One2many changes in chatter with searchable audit logs',
     'description': """
@@ -20,7 +20,7 @@ Main capabilities:
     """,
     'author': 'Odoovix',
    'website': 'https://apps.odoo.com/apps/modules/browse?author=Odoovix',
-    'support': 'odoovix@gmail.com',
+    'support': 'support@odoovix.com',
     'depends': [
         'base',
         'mail',
@@ -36,11 +36,10 @@ Main capabilities:
         'web.assets_backend': [
             'auto_field_tracker/static/description/field_tracker.css',
         ],
-      
     },
     'installable': True,
     'auto_install': False,
+     'images': ['static/description/banner.png'],
     'application': True,
-    'images': ['static/description/banner.png'],
     'license': 'OPL-1',
 }
