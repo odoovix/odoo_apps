@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'Universal Record Exporter',
+    'name': 'All-in-One Exporter',
     'version': '18.0.1.0.0',
     'category': 'Tools',
     'summary': 'Configurable Excel, CSV and XML exports for any Odoo model',
