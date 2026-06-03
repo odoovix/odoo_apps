@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Top-level menu under Settings / Universal Export -->
+    <menuitem
+        id="menu_universal_export_root"
+        name="Universal Export"
+        parent="base.menu_administration"
+        groups="base.group_system"
+        sequence="100"/>
+
+    <menuitem
+        id="menu_universal_export_rules"
+        name="Export Rules"
+        parent="menu_universal_export_root"
+        action="action_universal_export_rule"
+        groups="base.group_system"
+        sequence="10"/>
+
+</odoo>

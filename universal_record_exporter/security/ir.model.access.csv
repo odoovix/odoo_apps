@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_universal_export_rule_manager,Universal Export Rule manager,model_universal_export_rule,base.group_system,1,1,1,1
+access_universal_export_rule_export_user,Universal Export Rule export user,model_universal_export_rule,base.group_allow_export,1,0,0,0
+access_universal_export_line_manager,Universal Export Main Field manager,model_universal_export_line,base.group_system,1,1,1,1
+access_universal_export_line_export_user,Universal Export Main Field export user,model_universal_export_line,base.group_allow_export,1,0,0,0
+access_universal_export_rel_line_manager,Universal Export Related Field manager,model_universal_export_rel_line,base.group_system,1,1,1,1
+access_universal_export_rel_line_export_user,Universal Export Related Field export user,model_universal_export_rel_line,base.group_allow_export,1,0,0,0
