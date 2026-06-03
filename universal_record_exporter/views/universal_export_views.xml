@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- List view -->
+    <record id="view_universal_export_rule_list" model="ir.ui.view">
+        <field name="name">universal.export.rule.list</field>
+        <field name="model">universal.export.rule</field>
+        <field name="arch" type="xml">
+            <tree string="Export Rules">
+                <field name="name" string="Rule Name"/>
+                <field name="model_id" string="Applies to"/>
+                <field name="export_type" string="Export Type"/>
+                <field name="export_file_name" string="File Name"/>
+                <field name="active" string="Active"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form view -->
+    <record id="view_universal_export_rule_form" model="ir.ui.view">
+        <field name="name">universal.export.rule.form</field>
+        <field name="model">universal.export.rule</field>
+        <field name="arch" type="xml">
+            <form string="Export Rule">
+
+                <header>
+                    <button name="action_add_in_model"
+                            string="Add to Action Menu"
+                            type="object"
+                            class="btn-primary"
+                            groups="base.group_system"
+                            help="Registers this export rule on the target model's Action menu."/>
+                    <button name="action_remove_from_model"
+                            string="Remove from Action Menu"
+                            type="object"
+                            class="btn-secondary"
+                            groups="base.group_system"
+                            invisible="not action_id"
+                            confirm="This will unlink the export rule from the model's Action menu. Continue?"/>
+                </header>
+
+                <sheet>
+                    <!-- Title block -->
+                    <div class="oe_title">
+                        <label for="name" string="Rule Name"/>
+                        <h1>
+                            <field name="name" placeholder="e.g. SALES XLSX"/>
+                        </h1>
+                    </div>
+
+                    <!-- Main config grid -->
+                    <group>
+                        <group string="Model Setup">
+                            <field name="model_id"
+                                   options="{'no_create': True}"
+                                   readonly="action_id != False"/>
+                            <field name="sub_model_id"
+                                   readonly="1"
+                                   force_save="1"
+                                   options="{'no_create': True}"/>
+                            <field name="rel_field_id"
+                                   options="{'no_create': True}"/>
+                        </group>
+                        <group string="Export Settings">
+                            <field name="export_type"/>
+                            <field name="active" widget="boolean_toggle"/>
+                            <field name="export_file_name"/>
+                            <field name="action_id" readonly="1" invisible="not action_id"/>
+                        </group>
+                    </group>
+
+                    <!-- Tabs -->
+                    <notebook>
+
+                        <!-- Fields -->
+                        <page string="Fields" name="page_fields">
+
+                            <!-- Main model fields -->
+                            <field name="field_line_ids"
+                                   context="{'default_export_id': id}">
+                                <tree editable="bottom"
+                                      string="Main Model Fields">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="field_id"
+                                           string="Name"
+                                           options="{'no_create': True}"
+                                           required="1"/>
+                                    <field name="model_id_rel"
+                                           string="model"
+                                           readonly="1"
+                                           optional="show"/>
+                                    <field name="rel_field_id"
+                                           string="Relation Field"
+                                           options="{'no_create': True}"/>
+                                    <field name="label" string="Label"/>
+                                </tree>
+                            </field>
+
+                            <!-- Relational (sub-model) fields -->
+                            <separator string="Related Model Fields"/>
+
+                            <field name="rel_field_line_ids"
+                                   context="{'default_export_id': id}">
+                                <tree editable="bottom"
+                                      string="Sub-Model Fields">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="field_id"
+                                           string="Name"
+                                           options="{'no_create': True}"
+                                           required="1"/>
+                                    <field name="model_id_rel"
+                                           string="model"
+                                           readonly="1"
+                                           optional="show"/>
+                                    <field name="rel_field_id"
+                                           string="Relation Field"
+                                           options="{'no_create': True}"/>
+                                    <field name="label" string="Label"/>
+                                </tree>
+                            </field>
+
+                        </page>
+
+                        <!-- Excel export -->
+                        <page string="Excel Export" name="page_excel">
+                            <group>
+                                <group string="File Options">
+                                    <field name="export_file_name"
+                                           string="File Name (without extension)"/>
+                                    <field name="export_type" string="Format"/>
+                                </group>
+                            </group>
+                            <div class="alert alert-info" role="alert">
+                                <strong>Note:</strong>
+                                The export will include all fields configured in the
+                                <em>Fields</em> tab.
+                                For Excel exports a styled header row and alternating
+                                row colours are applied automatically.
+                            </div>
+                        </page>
+
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search view -->
+    <record id="view_universal_export_rule_search" model="ir.ui.view">
+        <field name="name">universal.export.rule.search</field>
+        <field name="model">universal.export.rule</field>
+        <field name="arch" type="xml">
+            <search string="Search Export Rules">
+                <field name="name" string="Rule Name"/>
+                <field name="model_id" string="Model"/>
+                <filter string="Active" name="filter_active" domain="[('active', '=', True)]"/>
+                <filter string="Archived" name="filter_archived" domain="[('active', '=', False)]"/>
+                <group name="group_by">
+                    <filter string="Export Type" name="group_export_type"
+                            context="{'group_by': 'export_type'}"/>
+                    <filter string="Model" name="group_model"
+                            context="{'group_by': 'model_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_universal_export_rule" model="ir.actions.act_window">
+        <field name="name">Export Rules</field>
+        <field name="res_model">universal.export.rule</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_filter_active': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first export rule.
+            </p>
+            <p>
+                Define which fields to export from any model, then click
+                <strong>Add to Action Menu</strong> to make the export available
+                from that model's <em>Actions</em> menu.
+            </p>
+        </field>
+    </record>
+
+</odoo>
