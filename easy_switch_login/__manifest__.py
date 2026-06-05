@@ -44,7 +44,7 @@
             'easy_switch_login/static/src/xml/systray_button_templates.xml',
         ]},
     'images': [
-        'static/description/banner.svg'
+        'static/description/banner.png'
     ],
     'license': 'LGPL-3',
     'installable': True,
