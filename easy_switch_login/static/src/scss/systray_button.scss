@@ -1,0 +1,154 @@
+// ─── Systray wrapper ────────────────────────────────────────────────────────
+.easy_switch_login_systray {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0.25rem;
+    position: relative;
+}
+
+// ─── Shared pill button ─────────────────────────────────────────────────────
+.easy_switch_login_systray__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 2.25rem;
+    padding: 0.45rem 0.85rem;
+    border: 1px solid rgba(113, 75, 103, 0.18);
+    border-radius: 999px;
+    background: linear-gradient(180deg, #8c6a86, #77506f);
+    color: #fff;
+    box-shadow: 0 8px 18px rgba(113, 75, 103, 0.2);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+
+    &:hover {
+        transform: translateY(-1px);
+        background: linear-gradient(180deg, #97738f, #805878);
+        box-shadow: 0 10px 22px rgba(113, 75, 103, 0.24);
+    }
+
+    &:active {
+        transform: translateY(0);
+        box-shadow: 0 5px 12px rgba(113, 75, 103, 0.2);
+    }
+
+    .fa {
+        color: inherit;
+        font-size: 0.95rem;
+    }
+}
+
+// Switch-back button uses a warm amber tint
+.easy_switch_login_systray__icon--back {
+    background: linear-gradient(180deg, #c97a2e, #a35e1a);
+    border-color: rgba(160, 90, 20, 0.2);
+    box-shadow: 0 8px 18px rgba(160, 90, 20, 0.2);
+
+    &:hover {
+        background: linear-gradient(180deg, #d98b3a, #b36824);
+        box-shadow: 0 10px 22px rgba(160, 90, 20, 0.26);
+    }
+}
+
+// ─── Chevron ────────────────────────────────────────────────────────────────
+.easy_switch_login_systray__chevron {
+    font-size: 0.7rem;
+    opacity: 0.85;
+    transition: transform 0.2s ease;
+}
+
+// ─── Label (hidden on small screens) ────────────────────────────────────────
+.easy_switch_login_systray__label {
+    color: inherit;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+@media (max-width: 991.98px) {
+    .easy_switch_login_systray__icon {
+        padding: 0.45rem 0.7rem;
+    }
+
+    .easy_switch_login_systray__label {
+        display: none;
+    }
+}
+
+// ─── Picker wrap (needed for dropdown positioning) ───────────────────────────
+.easy_switch_login_systray__picker-wrap {
+    position: relative;
+}
+
+// ─── Inline dropdown ────────────────────────────────────────────────────────
+.easy_switch_login_systray__dropdown {
+    position: absolute;
+    top: calc(100% + 0.45rem);
+    right: 0;
+    z-index: 9999;
+    min-width: 220px;
+    max-height: 320px;
+    overflow-y: auto;
+    background: #fff;
+    border: 1px solid rgba(129, 88, 173, 0.18);
+    border-radius: 1rem;
+    box-shadow: 0 18px 40px rgba(80, 48, 130, 0.18);
+    padding: 0.4rem 0;
+    animation: esl-dropdown-in 0.16s ease;
+}
+
+@keyframes esl-dropdown-in {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.easy_switch_login_systray__dropdown-header {
+    padding: 0.55rem 1rem 0.45rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #9b7bb5;
+    border-bottom: 1px solid rgba(129, 88, 173, 0.1);
+    margin-bottom: 0.3rem;
+}
+
+.easy_switch_login_systray__dropdown-loading,
+.easy_switch_login_systray__dropdown-empty {
+    padding: 0.85rem 1rem;
+    font-size: 0.875rem;
+    color: #a08ab5;
+    text-align: center;
+}
+
+.easy_switch_login_systray__dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.6rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #3d2660;
+    cursor: pointer;
+    transition: background 0.15s ease;
+
+    &:hover {
+        background: linear-gradient(90deg, rgba(141, 103, 169, 0.12), rgba(255, 213, 106, 0.18));
+        color: #4e356f;
+    }
+
+    &:active {
+        background: rgba(141, 103, 169, 0.2);
+    }
+}
+
+.easy_switch_login_systray__user-icon {
+    color: #9b7bb5;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
