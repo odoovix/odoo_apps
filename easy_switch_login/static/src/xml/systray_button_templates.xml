@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <!--Systray user switch: shows current user icon; on click opens inline user picker -->
+    <t t-name="easy_switch_login.UserSwitchSystray" owl="1">
+        <div class="easy_switch_login_systray" t-ref="root">
+            <!-- Admin view: user-picker dropdown -->
+            <t t-if="state.isAdmin">
+                <div class="easy_switch_login_systray__picker-wrap">
+                    <div class="easy_switch_login_systray__icon easy_switch_login_systray__icon--trigger"
+                         t-on-click="handleSwitchClick">
+                        <i class="fa fa-user fa-lg" role="img" aria-label="Switch User"/>
+                        <span class="easy_switch_login_systray__label">Switch User</span>
+                        <i t-attf-class="fa fa-chevron-#{state.open ? 'up' : 'down'} easy_switch_login_systray__chevron"/>
+                    </div>
+                    <div t-if="state.open" class="easy_switch_login_systray__dropdown">
+                        <div class="easy_switch_login_systray__dropdown-header">Select a user to switch</div>
+                        <t t-if="state.loading">
+                            <div class="easy_switch_login_systray__dropdown-loading">
+                                <i class="fa fa-spinner fa-spin"/> Loading…
+                            </div>
+                        </t>
+                        <t t-else="">
+                            <div t-foreach="state.users" t-as="user" t-key="user.id"
+                                 t-att-data-user-id="user.id"
+                                 class="easy_switch_login_systray__dropdown-item"
+                                 t-on-click="handleUserClick">
+                                <i class="fa fa-user-circle easy_switch_login_systray__user-icon"/>
+                                <span t-esc="user.name"/>
+                            </div>
+                            <t t-if="state.users.length === 0">
+                                <div class="easy_switch_login_systray__dropdown-empty">No other users found</div>
+                            </t>
+                        </t>
+                    </div>
+                </div>
+            </t>
+            <!-- Non-admin view: switch back to admin -->
+            <t t-else="">
+                <div class="easy_switch_login_systray__icon easy_switch_login_systray__icon--back"
+                     t-on-click="switchBack">
+                    <i class="fa fa-sign-out fa-lg" role="img" aria-label="Switch Back"/>
+                    <span class="easy_switch_login_systray__label">Switch Back</span>
+                </div>
+            </t>
+        </div>
+    </t>
+</templates>
