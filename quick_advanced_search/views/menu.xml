@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_quick_search_root"
+              name="Quick Search"
+              action="action_quick_search_config"
+              sequence="515"
+              web_icon="base,static/description/settings.png"
+              groups="quick_advanced_search.group_quick_search_manager"/>
+
+    <menuitem id="menu_quick_search_settings"
+              name="Quick Search"
+              parent="base.menu_administration"
+              action="action_quick_search_config"
+              sequence="4"
+              groups="quick_advanced_search.group_quick_search_manager"/>
+</odoo>

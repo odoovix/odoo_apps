@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_quick_search_config_list" model="ir.ui.view">
+        <field name="name">quick.search.config.list</field>
+        <field name="model">quick.search.config</field>
+        <field name="arch" type="xml">
+            <list string="Quick Search">
+                <field name="model_id"/>
+                <field name="model_name"/>
+                <field name="active" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_quick_search_config_form" model="ir.ui.view">
+        <field name="name">quick.search.config.form</field>
+        <field name="model">quick.search.config</field>
+        <field name="arch" type="xml">
+            <form string="Quick Search">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="model_id" options="{'no_create': True}"/>
+                            <field name="model_name" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="active" widget="boolean_toggle"/>
+                        </group>
+                    </group>
+
+                    <field name="line_ids" context="{'default_config_id': id}">
+                        <list editable="bottom" string="Search Fields">
+                            <field name="sequence" widget="handle"/>
+                            <field name="active" optional="hide"/>
+                            <field name="label"/>
+                            <field name="field_id"
+                                   string="Field"
+                                   domain="[('model_id', '=', parent.model_id), ('store', '=', True), ('ttype', 'not in', ['binary', 'one2many', 'many2many', 'reference', 'properties'])]"
+                                   options="{'no_create': True}"/>
+                            <field name="field_name" readonly="1"/>
+                            <field name="field_type" readonly="1"/>
+                            <field name="operator"/>
+                        </list>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_quick_search_config_search" model="ir.ui.view">
+        <field name="name">quick.search.config.search</field>
+        <field name="model">quick.search.config</field>
+        <field name="arch" type="xml">
+            <search string="Search Quick Search Configurations">
+                <field name="model_id"/>
+                <field name="model_name"/>
+                <filter string="Active" name="active" domain="[('active', '=', True)]"/>
+                <filter string="Archived" name="archived" domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_quick_search_config" model="ir.actions.act_window">
+        <field name="name">Quick Search</field>
+        <field name="res_model">quick.search.config</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'search_default_active': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first quick search configuration.
+            </p>
+            <p>
+                Select a model and add the fields that should be searched from
+                the global search box on that model's backend views.
+            </p>
+        </field>
+    </record>
+</odoo>
