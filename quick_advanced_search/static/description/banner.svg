@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+    <title id="title">Advance Search and Quick Search for Odoo 19</title>
+    <desc id="desc">Marketplace banner for the Odoo quick advanced search module.</desc>
+    <defs>
+        <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#201248"/>
+            <stop offset="0.52" stop-color="#53258f"/>
+            <stop offset="1" stop-color="#7c2fa3"/>
+        </linearGradient>
+        <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#ffffff" stop-opacity="0.96"/>
+            <stop offset="1" stop-color="#f4f0fb" stop-opacity="0.98"/>
+        </linearGradient>
+        <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#160a34" flood-opacity="0.28"/>
+        </filter>
+    </defs>
+
+    <rect width="1600" height="900" fill="url(#bg)"/>
+    <circle cx="1420" cy="95" r="190" fill="#ffffff" opacity="0.08"/>
+    <circle cx="90" cy="815" r="200" fill="#201248" opacity="0.52"/>
+    <circle cx="1240" cy="900" r="285" fill="#e29200" opacity="0.16"/>
+
+    <g transform="translate(56 55)">
+        <rect x="0" y="0" width="210" height="210" rx="38" fill="#1d113f" opacity="0.7"/>
+        <text x="45" y="80" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="800" letter-spacing="2">ODOO</text>
+        <text x="43" y="137" fill="#e39a00" font-family="Arial, Helvetica, sans-serif" font-size="64" font-weight="900" letter-spacing="1">VIX</text>
+    </g>
+
+    <g transform="translate(294 88)">
+        <text fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="60" font-weight="900" letter-spacing="1">ADVANCE SEARCH</text>
+        <text y="72" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="60" font-weight="900" letter-spacing="1">&amp; QUICK SEARCH</text>
+        <text y="130" fill="#dbcaf3" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="500">Dynamic model search fields for Odoo 19 list views</text>
+    </g>
+
+    <g transform="translate(58 296)" filter="url(#shadow)">
+        <rect width="1484" height="462" rx="28" fill="#ffffff" opacity="0.12" stroke="#ffffff" stroke-opacity="0.18"/>
+
+        <g transform="translate(42 40)">
+            <rect width="432" height="310" rx="24" fill="url(#panel)"/>
+            <rect x="0" y="0" width="432" height="48" rx="24" fill="#ede7f6"/>
+            <rect x="40" y="88" width="352" height="32" rx="6" fill="#dde5ef"/>
+            <rect x="40" y="142" width="352" height="32" rx="6" fill="#dde5ef"/>
+            <rect x="40" y="196" width="352" height="32" rx="6" fill="#dde5ef"/>
+            <rect x="40" y="250" width="168" height="38" rx="8" fill="#714b8f"/>
+            <text x="70" y="276" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800">Search</text>
+            <text x="0" y="390" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="900">Quick fields above lists</text>
+        </g>
+
+        <g transform="translate(526 40)">
+            <rect width="432" height="310" rx="24" fill="url(#panel)"/>
+            <rect x="38" y="36" width="150" height="42" rx="10" fill="#714b8f"/>
+            <text x="58" y="64" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800">sale.order</text>
+            <rect x="38" y="112" width="356" height="34" rx="5" fill="#dde5ef"/>
+            <rect x="38" y="164" width="356" height="34" rx="5" fill="#dde5ef"/>
+            <rect x="38" y="216" width="356" height="34" rx="5" fill="#dde5ef"/>
+            <circle cx="370" cy="129" r="10" fill="#2fb344"/>
+            <circle cx="370" cy="181" r="10" fill="#2fb344"/>
+            <circle cx="370" cy="233" r="10" fill="#2fb344"/>
+            <text x="0" y="390" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="900">Configure any model</text>
+        </g>
+
+        <g transform="translate(1010 40)">
+            <rect width="432" height="310" rx="24" fill="url(#panel)"/>
+            <rect x="38" y="42" width="356" height="42" rx="8" fill="#ffffff" stroke="#c9b8dc"/>
+            <text x="58" y="70" fill="#714b8f" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800">Order Date = Jun 5</text>
+            <rect x="38" y="116" width="356" height="34" rx="5" fill="#dde5ef"/>
+            <rect x="38" y="168" width="356" height="34" rx="5" fill="#dde5ef"/>
+            <rect x="38" y="220" width="356" height="34" rx="5" fill="#dde5ef"/>
+            <path d="M342 58 l15 15 l32 -37" fill="none" stroke="#2fb344" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="0" y="390" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="900">Date &amp; operator search</text>
+        </g>
+    </g>
+
+    <text x="800" y="835" text-anchor="middle" fill="#dbcaf3" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="500">
+        Add configurable search boxes to Odoo list views without changing every model manually.
+    </text>
+</svg>
