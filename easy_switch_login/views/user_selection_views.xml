@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--wizard for user selection-->
+    <record id="user_selection_view_form" model="ir.ui.view">
+        <field name="name">user.selection.view.form</field>
+        <field name="model">user.selection</field>
+        <field name="arch" type="xml">
+            <form string="Select User" class="easy_switch_login_wizard">
+                <group class="easy_switch_login_wizard__group">
+                    <field name="user_id"/>
+                </group>
+                <field name="access_ids" class="easy_switch_login_wizard__access"/>
+                <footer>
+                    <button name="action_switch" string="Switch User"
+                            type="object" class="btn-primary easy_switch_login_wizard__action"/>
+                    <button string="Cancel" special="cancel"
+                            class="btn-secondary easy_switch_login_wizard__cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>
