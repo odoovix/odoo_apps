@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Menu Hide User Wise banner</title>
+  <desc id="desc">Banner for the Menu Hide User Wise Odoo module with Odoovix branding, user form configuration, and hidden menu results.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f1f3b"/>
+      <stop offset="55%" stop-color="#17325b"/>
+      <stop offset="100%" stop-color="#2b4d86"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff22"/>
+      <stop offset="100%" stop-color="#ffffff12"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffbf47"/>
+      <stop offset="100%" stop-color="#ff8a1f"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3dd598"/>
+      <stop offset="100%" stop-color="#179b69"/>
+    </linearGradient>
+    <linearGradient id="chip1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff8ea1"/>
+      <stop offset="100%" stop-color="#ff5f7e"/>
+    </linearGradient>
+    <linearGradient id="chip2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8fd2ff"/>
+      <stop offset="100%" stop-color="#4e98ff"/>
+    </linearGradient>
+    <linearGradient id="chip3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#d0a5ff"/>
+      <stop offset="100%" stop-color="#9a63ff"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1430" cy="120" r="200" fill="#ffffff08"/>
+  <circle cx="1450" cy="820" r="210" fill="#ffffff05"/>
+  <circle cx="170" cy="780" r="160" fill="#ffffff05"/>
+  <circle cx="120" cy="120" r="105" fill="#ffffff05"/>
+
+  <g transform="translate(88 78)">
+    <rect x="0" y="0" width="102" height="102" rx="28" fill="#ffffff12" stroke="#ffffff24"/>
+    <image href="icon.png" x="11" y="11" width="80" height="80"/>
+    <text x="126" y="42" fill="#ffffff" font-size="30" font-weight="700" font-family="Arial, sans-serif">ODOOVIX</text>
+    <text x="126" y="78" fill="#c7d7f4" font-size="20" font-family="Arial, sans-serif">Odoo Apps Setup</text>
+  </g>
+
+  <g transform="translate(92 214)">
+    <text x="0" y="0" fill="#ffffff" font-size="72" font-weight="700" font-family="Arial, sans-serif">Menu Hide User Wise</text>
+    <text x="0" y="58" fill="#dce7ff" font-size="28" font-family="Arial, sans-serif">
+      Hide selected menus and submenus for specific users from one clean dashboard tab.
+    </text>
+
+    <g transform="translate(0 108)">
+      <rect x="0" y="0" width="220" height="52" rx="26" fill="#ffffff18" stroke="#ffffff26"/>
+      <circle cx="28" cy="26" r="9" fill="#ff9f43"/>
+      <text x="48" y="33" fill="#ffffff" font-size="22" font-family="Arial, sans-serif">User-wise setup</text>
+
+      <rect x="244" y="0" width="242" height="52" rx="26" fill="#ffffff18" stroke="#ffffff26"/>
+      <circle cx="272" cy="26" r="9" fill="#3dd598"/>
+      <text x="292" y="33" fill="#ffffff" font-size="22" font-family="Arial, sans-serif">Quick menu selection</text>
+
+      <rect x="510" y="0" width="214" height="52" rx="26" fill="#ffffff18" stroke="#ffffff26"/>
+      <circle cx="538" cy="26" r="9" fill="#8fd2ff"/>
+      <text x="558" y="33" fill="#ffffff" font-size="22" font-family="Arial, sans-serif">Instant validation</text>
+    </g>
+
+    <g transform="translate(0 212)">
+      <rect x="0" y="0" width="562" height="382" rx="34" fill="url(#panel)" stroke="#ffffff22"/>
+      <text x="34" y="52" fill="#ffffff" font-size="30" font-weight="700" font-family="Arial, sans-serif">Menu Visibility Dashboard</text>
+      <text x="34" y="88" fill="#d9e4fb" font-size="20" font-family="Arial, sans-serif">Select hidden menus directly on the user form.</text>
+
+      <rect x="34" y="124" width="494" height="62" rx="20" fill="#ffffff" opacity="0.95"/>
+      <circle cx="66" cy="155" r="10" fill="#17325b"/>
+      <text x="90" y="163" fill="#6a7f9f" font-size="22" font-family="Arial, sans-serif">Search menus and submenus...</text>
+
+      <rect x="34" y="220" width="178" height="50" rx="25" fill="url(#chip1)"/>
+      <text x="89" y="252" text-anchor="middle" fill="#ffffff" font-size="21" font-weight="700" font-family="Arial, sans-serif">Sales</text>
+      <text x="184" y="252" fill="#ffffff" font-size="20" font-family="Arial, sans-serif">x</text>
+
+      <rect x="226" y="220" width="198" height="50" rx="25" fill="url(#chip2)"/>
+      <text x="316" y="252" text-anchor="middle" fill="#ffffff" font-size="21" font-weight="700" font-family="Arial, sans-serif">Invoicing</text>
+      <text x="396" y="252" fill="#ffffff" font-size="20" font-family="Arial, sans-serif">x</text>
+
+      <rect x="34" y="288" width="254" height="50" rx="25" fill="url(#chip3)"/>
+      <text x="145" y="320" text-anchor="middle" fill="#ffffff" font-size="21" font-weight="700" font-family="Arial, sans-serif">Link Tracker</text>
+      <text x="260" y="320" fill="#ffffff" font-size="20" font-family="Arial, sans-serif">x</text>
+
+      <rect x="34" y="356" width="494" height="1" fill="#ffffff24"/>
+      <text x="34" y="392" fill="#dce7ff" font-size="20" font-family="Arial, sans-serif">Save the user record and verify the hidden menu result instantly.</text>
+    </g>
+  </g>
+
+  <g transform="translate(942 214)">
+    <rect x="0" y="0" width="566" height="594" rx="34" fill="#f6f8fc"/>
+    <rect x="0" y="0" width="566" height="74" rx="34" fill="#725d9c"/>
+    <text x="34" y="46" fill="#ffffff" font-size="28" font-weight="700" font-family="Arial, sans-serif">User View Preview</text>
+
+    <rect x="34" y="106" width="206" height="48" rx="16" fill="#ffffff" stroke="#d5ddeb"/>
+    <text x="52" y="137" fill="#29374f" font-size="21" font-family="Arial, sans-serif">Discuss</text>
+
+    <rect x="34" y="170" width="128" height="48" rx="16" fill="#ffe1e6" stroke="#ffc6d0"/>
+    <text x="52" y="201" fill="#9a3148" font-size="21" font-weight="700" font-family="Arial, sans-serif">Sales</text>
+
+    <line x1="34" y1="244" x2="532" y2="244" stroke="#dbe3f1"/>
+    <text x="34" y="292" fill="#31415f" font-size="24" font-weight="700" font-family="Arial, sans-serif">Result</text>
+    <text x="34" y="334" fill="#63738d" font-size="21" font-family="Arial, sans-serif">The selected menu is no longer visible for the user.</text>
+
+    <rect x="34" y="386" width="498" height="158" rx="24" fill="#ffffff" stroke="#d5ddeb"/>
+    <circle cx="78" cy="438" r="22" fill="url(#green)"/>
+    <text x="78" y="446" text-anchor="middle" fill="#ffffff" font-size="23" font-weight="700" font-family="Arial, sans-serif">A</text>
+    <text x="118" y="432" fill="#29374f" font-size="24" font-weight="700" font-family="Arial, sans-serif">Arshat</text>
+    <text x="118" y="466" fill="#6b7f9b" font-size="19" font-family="Arial, sans-serif">Focused navigation after menu hide setup</text>
+
+    <rect x="332" y="408" width="168" height="46" rx="23" fill="url(#gold)"/>
+    <text x="416" y="438" text-anchor="middle" fill="#ffffff" font-size="21" font-weight="700" font-family="Arial, sans-serif">Switch Back</text>
+
+    <rect x="72" y="494" width="164" height="12" rx="6" fill="#dce5f2"/>
+    <rect x="72" y="522" width="288" height="12" rx="6" fill="#dce5f2"/>
+  </g>
+
+  <text x="800" y="860" text-anchor="middle" fill="#d7e5ff" font-size="24" font-family="Arial, sans-serif">
+    Configure hidden menus faster, keep user views cleaner, and present a polished Odoo backend with Odoovix.
+  </text>
+</svg>
