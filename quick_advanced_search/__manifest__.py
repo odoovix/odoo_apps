@@ -20,6 +20,8 @@ Features
     'author': 'Odoovix',
     'website': 'https://apps.odoo.com/apps/modules/browse?author=Odoovix',
     'support': 'odoovix@gmail.com',
+    'price': 69.0,
+    'currency': 'USD',
     'depends': ['base', 'web'],
     'data': [
         'security/quick_search_security.xml',
