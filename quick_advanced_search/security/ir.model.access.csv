@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_quick_search_config_manager,quick.search.config manager,model_quick_search_config,quick_advanced_search.group_quick_search_manager,1,1,1,1
+access_quick_search_config_user,quick.search.config user,model_quick_search_config,quick_advanced_search.group_quick_search_user,1,0,0,0
+access_quick_search_line_manager,quick.search.line manager,model_quick_search_line,quick_advanced_search.group_quick_search_manager,1,1,1,1
+access_quick_search_line_user,quick.search.line user,model_quick_search_line,quick_advanced_search.group_quick_search_user,1,0,0,0

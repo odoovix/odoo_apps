@@ -1,0 +1,35 @@
+.o_quick_advanced_search {
+    flex-basis: 100%;
+    width: 100%;
+    padding-top: 8px;
+
+    .o_quick_advanced_search_fields {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 10px 28px;
+        align-items: end;
+    }
+
+    .o_quick_advanced_search_field {
+        min-width: 0;
+
+        label {
+            display: block;
+            margin-bottom: 4px;
+            font-weight: 600;
+            color: #1f2933;
+        }
+    }
+
+    .o_quick_advanced_search_between {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+    }
+
+    .o_quick_advanced_search_buttons {
+        display: flex;
+        gap: 6px;
+        margin-top: 8px;
+    }
+}
