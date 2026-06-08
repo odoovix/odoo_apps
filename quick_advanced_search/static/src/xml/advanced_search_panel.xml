@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="quick_advanced_search.ControlPanel" t-inherit="web.ControlPanel" t-inherit-mode="extension">
+        <xpath expr="//div[contains(@class, 'o_control_panel_main')]" position="after">
+            <div t-if="qasVisible" class="o_quick_advanced_search">
+                <div class="o_quick_advanced_search_fields">
+                    <t t-foreach="quickAdvancedSearch.lines" t-as="line" t-key="line.id">
+                        <div class="o_quick_advanced_search_field">
+                            <label t-out="line.label"/>
+                            <t t-if="line.operator === 'between'">
+                                <div class="o_quick_advanced_search_between">
+                                    <input t-att-type="qasInputType(line)"
+                                           class="form-control"
+                                           placeholder="from..."
+                                           t-att-value="quickAdvancedSearch.values[line.id].start"
+                                           t-on-input="(ev) => this.qasSetValue(line, ev, 'start')"/>
+                                    <input t-att-type="qasInputType(line)"
+                                           class="form-control"
+                                           placeholder="to..."
+                                           t-att-value="quickAdvancedSearch.values[line.id].end"
+                                           t-on-input="(ev) => this.qasSetValue(line, ev, 'end')"/>
+                                </div>
+                            </t>
+                            <t t-else="">
+                                <input t-att-type="qasInputType(line)"
+                                       class="form-control"
+                                       t-att-placeholder="qasPlaceholder(line)"
+                                       t-att-value="quickAdvancedSearch.values[line.id]"
+                                       t-on-input="(ev) => this.qasSetValue(line, ev)"/>
+                            </t>
+                        </div>
+                    </t>
+                </div>
+                <div class="o_quick_advanced_search_buttons">
+                    <button type="button" class="btn btn-primary" t-on-click="qasSearch">Search</button>
+                    <button type="button" class="btn btn-secondary" t-on-click="qasReset">Reset</button>
+                </div>
+            </div>
+        </xpath>
+    </t>
+</templates>

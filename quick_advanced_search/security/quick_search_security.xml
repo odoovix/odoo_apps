@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="module_category_quick_search" model="ir.module.category">
+        <field name="name">Extra Tools</field>
+        <field name="description">Extra tools and productivity apps.</field>
+        <field name="sequence">45</field>
+    </record>
+
+    <record id="group_quick_search_user" model="res.groups">
+        <field name="name">Quick Search User</field>
+        <field name="category_id" ref="module_category_quick_search"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="group_quick_search_manager" model="res.groups">
+        <field name="name">Quick Search Manager</field>
+        <field name="category_id" ref="module_category_quick_search"/>
+        <field name="implied_ids" eval="[(4, ref('group_quick_search_user')), (4, ref('base.group_erp_manager'))]"/>
+        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+    </record>
+</odoo>
