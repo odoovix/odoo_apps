@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="personal_shortcuts.ShortcutPanel">
+        <section t-ref="shortcutRoot" class="o_tsc_panel">
+            <div class="o_tsc_section_header" t-att-style="getHeaderStyle('shortcuts')">
+                <h2 t-att-style="getHeaderTitleStyle('shortcuts')">Shortcuts</h2>
+                <div t-if="state.canEditHeaderColors" class="o_tsc_header_controls">
+                    <select
+                        class="o_tsc_color_scope_select"
+                        title="Dashboard color scope"
+                        aria-label="Dashboard color scope"
+                        t-on-click.stop=""
+                        t-on-change="(ev) => this.changeColorMode(ev)"
+                    >
+                        <option value="global" t-att-selected="state.colorMode === 'global'">Global</option>
+                        <option value="personal" t-att-selected="state.colorMode === 'personal'">My Colors</option>
+                    </select>
+                    <input
+                        class="o_tsc_header_color_input"
+                        type="color"
+                        title="Change Shortcuts color"
+                        aria-label="Change Shortcuts color"
+                        t-att-value="getHeaderInputValue('shortcuts')"
+                        t-on-click.stop=""
+                        t-on-input="(ev) => this.previewHeaderColor('shortcuts', ev)"
+                        t-on-change="(ev) => this.saveHeaderColor('shortcuts', ev)"
+                    />
+                </div>
+            </div>
+
+            <div t-if="state.loading" class="o_tsc_status">
+                Loading shortcuts...
+            </div>
+
+            <div t-else="" class="o_tsc_apps row user-select-none mx-0">
+                <div
+                    t-foreach="state.shortcuts"
+                    t-as="shortcut"
+                    t-key="shortcut.id"
+                    class="col-3 col-md-2 o_tsc_sortable_item mb-3 px-0"
+                    t-att-class="{ 'o_tsc_dragging': state.dragId === shortcut.id }"
+                    t-att-data-shortcut-id="shortcut.id"
+                >
+                    <a
+                        class="o_app o_menuitem d-flex flex-column rounded-3 justify-content-start align-items-center w-100 p-1 p-md-2"
+                        t-att-href="shortcut.url"
+                        t-on-click.prevent="() => this.navigateTo(shortcut)"
+                    >
+                        <img
+                            t-if="getParentIconData(shortcut)"
+                            class="o_app_icon rounded-3"
+                            t-att-src="getParentIconData(shortcut)"
+                            t-att-alt="shortcut.name"
+                        />
+                        <div
+                            t-elif="getParentIcon(shortcut)"
+                            class="o_app_icon position-relative d-flex justify-content-center align-items-center p-2 rounded-3 ratio ratio-1x1"
+                            t-att-style="'background-color: ' + getParentIcon(shortcut).backgroundColor + ';'"
+                        >
+                            <i
+                                t-att-class="getParentIcon(shortcut).iconClass + ' position-relative w-auto h-auto'"
+                                t-att-style="'color: ' + getParentIcon(shortcut).color + ';'"
+                            />
+                        </div>
+                        <img
+                            t-elif="shortcut.icon"
+                            class="o_app_icon rounded-3"
+                            t-att-src="getIconUrl(shortcut)"
+                            t-att-alt="shortcut.name"
+                        />
+                        <div
+                            t-else=""
+                            class="o_app_icon o_tsc_default_icon rounded-3"
+                        >
+                            <i class="fa fa-link" aria-hidden="true"/>
+                        </div>
+                        <div class="o_caption w-100 text-center text-truncate mt-2" t-esc="shortcut.name"/>
+                    </a>
+                </div>
+
+                <div class="col-3 col-md-2 mb-3 px-0">
+                    <button
+                        class="o_app o_tsc_add_shortcut d-flex flex-column rounded-3 justify-content-start align-items-center w-100 p-1 p-md-2"
+                        type="button"
+                        t-on-click="openAddDialog"
+                    >
+                        <span class="o_app_icon rounded-3">
+                            <i class="fa fa-plus" aria-hidden="true"/>
+                        </span>
+                        <span class="o_caption w-100 text-center text-truncate mt-2">Add Shortcut</span>
+                    </button>
+                </div>
+            </div>
+
+            <div
+                t-if="props.showAppsHeader"
+                class="o_tsc_section_header o_tsc_apps_header"
+                t-att-style="getHeaderStyle('apps')"
+            >
+                <h2 t-att-style="getHeaderTitleStyle('apps')">Apps</h2>
+                <div t-if="state.canEditHeaderColors" class="o_tsc_header_controls">
+                    <input
+                        class="o_tsc_header_color_input"
+                        type="color"
+                        title="Change Apps color"
+                        aria-label="Change Apps color"
+                        t-att-value="getHeaderInputValue('apps')"
+                        t-on-click.stop=""
+                        t-on-input="(ev) => this.previewHeaderColor('apps', ev)"
+                        t-on-change="(ev) => this.saveHeaderColor('apps', ev)"
+                    />
+                </div>
+            </div>
+        </section>
+    </t>
+</templates>

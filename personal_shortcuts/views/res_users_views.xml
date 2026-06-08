@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_res_users_shortcuts_admin" model="ir.ui.view">
+        <field name="name">res.users.shortcuts.admin</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Shortcuts" name="personal_shortcuts_page">
+                    <group string="Global Dashboard Colors" col="2" groups="base.group_system">
+                        <field name="global_shortcut_header_color" widget="color"/>
+                        <field name="global_apps_header_color" widget="color"/>
+                    </group>
+                    <group string="Personal Dashboard Colors" col="2">
+                        <field name="shortcut_color_mode"/>
+                        <field name="shortcut_header_color" widget="color"/>
+                        <field name="apps_header_color" widget="color"/>
+                    </group>
+                    <field name="shortcut_ids" nolabel="1" context="{'default_user_id': id}">
+                        <tree editable="bottom">
+                            <field name="sequence" widget="handle"/>
+                            <field name="name" string="Name"/>
+                            <field name="url" string="URL"/>
+                            <field name="use_parent_icon" string="Use Parent Icon"/>
+                            <field name="menu_id" string="Parent Menu" optional="hide" options="{'no_create': True}"/>
+                            <field name="icon" string="Icon" widget="image" options="{'size': [50, 50]}"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_res_users_shortcuts_preferences" model="ir.ui.view">
+        <field name="name">res.users.shortcuts.preferences</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form_simple_modif"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Shortcuts" name="personal_shortcuts_page">
+                    <group string="Global Dashboard Colors" col="2" groups="base.group_system">
+                        <field name="global_shortcut_header_color" widget="color"/>
+                        <field name="global_apps_header_color" widget="color"/>
+                    </group>
+                    <group string="Personal Dashboard Colors" col="2">
+                        <field name="shortcut_color_mode"/>
+                        <field name="shortcut_header_color" widget="color"/>
+                        <field name="apps_header_color" widget="color"/>
+                    </group>
+                    <field name="shortcut_ids" nolabel="1" context="{'default_user_id': id}">
+                        <tree editable="bottom">
+                            <field name="sequence" widget="handle"/>
+                            <field name="name" string="Name"/>
+                            <field name="url" string="URL"/>
+                            <field name="use_parent_icon" string="Use Parent Icon"/>
+                            <field name="menu_id" string="Parent Menu" optional="hide" options="{'no_create': True}"/>
+                            <field name="icon" string="Icon" widget="image" options="{'size': [50, 50]}"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

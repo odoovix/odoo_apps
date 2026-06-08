@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="personal_shortcuts.ShortcutDialog">
+        <Dialog title="title" size="'md'">
+            <div class="o_tsc_dialog">
+                <label class="o_tsc_dialog_field">
+                    <span class="o_form_label">Name *</span>
+                    <input
+                        class="o_input"
+                        type="text"
+                        t-model="state.name"
+                        autofocus="autofocus"
+                    />
+                </label>
+
+                <label class="o_tsc_dialog_field">
+                    <span class="o_form_label">Url *</span>
+                    <input
+                        class="o_input"
+                        type="text"
+                        t-model="state.url"
+                    />
+                </label>
+
+                <label class="o_tsc_dialog_check">
+                    <input type="checkbox" t-model="state.useParentIcon"/>
+                    <span>Use parent app icon</span>
+                </label>
+
+                <label class="o_tsc_dialog_field">
+                    <span class="o_form_label">Icon (optional)</span>
+                    <input
+                        class="form-control"
+                        type="file"
+                        accept="image/*"
+                        t-on-change="onIconChange"
+                    />
+                </label>
+                <div t-if="state.iconPreview" class="o_tsc_icon_preview">
+                    <img t-att-src="state.iconPreview" alt="Shortcut icon preview"/>
+                </div>
+            </div>
+
+            <t t-set-slot="footer">
+                <button
+                    class="btn btn-primary"
+                    t-att-disabled="state.isSaving or !state.name.trim() or !state.url.trim()"
+                    t-on-click="onSave"
+                >
+                    <t t-esc="buttonLabel"/>
+                </button>
+                <button class="btn btn-secondary" t-att-disabled="state.isSaving" t-on-click="props.close">
+                    Close
+                </button>
+            </t>
+        </Dialog>
+    </t>
+</templates>

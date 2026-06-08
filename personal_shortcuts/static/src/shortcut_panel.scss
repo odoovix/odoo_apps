@@ -1,0 +1,202 @@
+.o_home_menu {
+    .o_tsc_panel {
+        margin-top: 46px;
+    }
+
+    .o_tsc_section_header {
+        align-items: center;
+        background: var(--o-tsc-header-bg, #d2f4f8);
+        border-left: 3px solid var(--o-tsc-header-border, #87e6f0);
+        border-radius: 4px;
+        display: flex;
+        justify-content: space-between;
+        min-height: 54px;
+        padding: 0 18px;
+
+        h2 {
+            color: var(--o-tsc-header-text, #17313a);
+            font-size: 1.125rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin: 0;
+        }
+    }
+
+    .o_tsc_header_controls {
+        align-items: center;
+        display: inline-flex;
+        gap: 8px;
+    }
+
+    .o_tsc_color_scope_select {
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.48);
+        border-radius: 4px;
+        color: var(--o-tsc-header-text, #17313a);
+        cursor: pointer;
+        font-size: 0.8rem;
+        height: 28px;
+        max-width: 92px;
+        padding: 2px 6px;
+
+        option {
+            color: #212529;
+        }
+    }
+
+    .o_tsc_header_color_input {
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.48);
+        border-radius: 4px;
+        cursor: pointer;
+        height: 28px;
+        padding: 2px;
+        width: 40px;
+
+        &::-webkit-color-swatch-wrapper {
+            padding: 0;
+        }
+
+        &::-webkit-color-swatch {
+            border: 0;
+            border-radius: 2px;
+        }
+
+        &::-moz-color-swatch {
+            border: 0;
+            border-radius: 2px;
+        }
+    }
+
+    .o_tsc_apps_header {
+        margin-top: 10px;
+    }
+
+    .o_tsc_apps {
+        margin-top: 24px;
+        margin-bottom: 10px;
+    }
+
+    .o_tsc_apps_header + .o_apps {
+        margin-top: 24px !important;
+    }
+
+    .o_tsc_sortable_item {
+        cursor: move;
+    }
+
+    .o_tsc_dragging {
+        opacity: 0.45;
+    }
+
+    .o_tsc_placeholder {
+        visibility: hidden;
+    }
+
+    .o_tsc_default_icon,
+    .o_tsc_add_shortcut .o_app_icon {
+        align-items: center;
+        color: #596272;
+        display: flex;
+        justify-content: center;
+    }
+
+    .o_tsc_default_icon {
+        background: rgba(255, 255, 255, 0.92);
+
+        .fa {
+            font-size: 1.8rem;
+        }
+    }
+
+    .o_tsc_add_shortcut {
+        background: transparent;
+        border: 0;
+        color: inherit;
+        cursor: pointer;
+
+        .o_app_icon {
+            background: rgba(255, 255, 255, 0.86);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            font-size: 1.05rem;
+        }
+
+        &:hover .o_app_icon {
+            transform: translateY(-2px);
+        }
+    }
+
+    .o_tsc_status {
+        color: var(--homeMenuCaption-color, #343a40);
+        margin-top: 24px;
+        padding: 8px 0;
+    }
+
+    &.o_ios_app {
+        .o_tsc_apps {
+            flex-direction: column;
+            padding: 0 0.5rem;
+
+            > *,
+            .o_app {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.o_tsc_dialog {
+    display: grid;
+    gap: 14px;
+}
+
+.o_tsc_dialog_field {
+    display: grid;
+    gap: 6px;
+    margin: 0;
+}
+
+.o_tsc_dialog_check {
+    align-items: center;
+    display: inline-flex;
+    gap: 8px;
+    margin: 0;
+}
+
+.o_tsc_icon_preview {
+    align-items: center;
+    display: flex;
+    min-height: 58px;
+
+    img {
+        border: 1px solid #dee2e6;
+        border-radius: 6px;
+        height: 52px;
+        object-fit: cover;
+        width: 52px;
+    }
+}
+
+.o_home_menu_background {
+    .o_home_menu {
+        .o_tsc_section_header {
+            background: var(--o-tsc-header-bg, rgba(48, 79, 109, 0.82));
+            border-left-color: var(--o-tsc-header-border, #6eb6ee);
+
+            h2 {
+                color: var(--o-tsc-header-text, #fff);
+            }
+        }
+
+        .o_tsc_status {
+            color: rgba(255, 255, 255, 0.82);
+        }
+
+        .o_tsc_default_icon,
+        .o_tsc_add_shortcut .o_app_icon {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.12);
+            color: rgba(255, 255, 255, 0.74);
+        }
+    }
+}
