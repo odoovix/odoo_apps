@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+    <title id="title">Personal Shortcuts banner</title>
+    <desc id="desc">Promotional banner for the Personal Shortcuts Odoo module.</desc>
+    <defs>
+        <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#13233f"/>
+            <stop offset="0.48" stop-color="#202b57"/>
+            <stop offset="1" stop-color="#5e3967"/>
+        </linearGradient>
+        <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#ffffff" stop-opacity="0.22"/>
+            <stop offset="1" stop-color="#ffffff" stop-opacity="0.08"/>
+        </linearGradient>
+        <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#45c4ff"/>
+            <stop offset="1" stop-color="#b05c99"/>
+        </linearGradient>
+        <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="20" stdDeviation="20" flood-color="#000000" flood-opacity="0.30"/>
+        </filter>
+        <style>
+            .title { font: 800 88px Arial, sans-serif; fill: #ffffff; }
+            .subtitle { font: 400 34px Arial, sans-serif; fill: #dfe8ff; }
+            .label { font: 700 24px Arial, sans-serif; fill: #ffffff; }
+            .small { font: 600 20px Arial, sans-serif; fill: #dfe8ff; }
+            .tiny { font: 600 18px Arial, sans-serif; fill: #ffffff; opacity: 0.86; }
+            .tile-text { font: 700 17px Arial, sans-serif; fill: #263247; }
+        </style>
+    </defs>
+
+    <rect width="1600" height="900" fill="url(#bg)"/>
+    <circle cx="170" cy="120" r="260" fill="#45c4ff" opacity="0.12"/>
+    <circle cx="1440" cy="760" r="360" fill="#b05c99" opacity="0.16"/>
+    <path d="M-60 760 C250 620 330 350 610 300 C875 252 1020 420 1260 310 C1430 232 1510 90 1660 70 L1660 900 L-60 900 Z" fill="#ffffff" opacity="0.07"/>
+
+    <g transform="translate(110 120)">
+        <rect x="0" y="0" width="690" height="610" rx="34" fill="url(#panel)" stroke="#ffffff" stroke-opacity="0.18"/>
+        <text class="title" x="48" y="105">Personal</text>
+        <text class="title" x="48" y="195">Shortcuts</text>
+        <text class="subtitle" x="52" y="268">Your Odoo home menu, tuned for faster daily work.</text>
+        <text class="subtitle" x="52" y="315">Create shortcuts, reuse app icons, upload custom</text>
+        <text class="subtitle" x="52" y="362">icons, and control section colors from the UI.</text>
+
+        <g transform="translate(52 430)">
+            <rect width="185" height="56" rx="28" fill="#ffffff" opacity="0.18"/>
+            <circle cx="32" cy="28" r="12" fill="#45c4ff"/>
+            <text class="tiny" x="56" y="35">Parent icons</text>
+        </g>
+        <g transform="translate(260 430)">
+            <rect width="180" height="56" rx="28" fill="#ffffff" opacity="0.18"/>
+            <circle cx="32" cy="28" r="12" fill="#ffb347"/>
+            <text class="tiny" x="56" y="35">Upload icons</text>
+        </g>
+        <g transform="translate(462 430)">
+            <rect width="175" height="56" rx="28" fill="#ffffff" opacity="0.18"/>
+            <circle cx="32" cy="28" r="12" fill="#b05c99"/>
+            <text class="tiny" x="56" y="35">UI colors</text>
+        </g>
+
+        <g transform="translate(52 525)">
+            <image href="icon.png" x="0" y="0" width="74" height="74" preserveAspectRatio="xMidYMid meet"/>
+            <text class="small" x="94" y="30">Built for Odoo Enterprise home menu workflows</text>
+            <text class="small" x="94" y="62">Odoo 17, Odoo 18, and Odoo 19 ready</text>
+        </g>
+    </g>
+
+    <g transform="translate(850 105)" filter="url(#shadow)">
+        <rect x="0" y="0" width="520" height="690" rx="38" fill="#f7f9ff"/>
+        <rect x="0" y="0" width="520" height="690" rx="38" fill="#ffffff" opacity="0.72"/>
+
+        <rect x="42" y="44" width="436" height="72" rx="8" fill="#3f3850"/>
+        <text class="label" x="70" y="90">Shortcuts</text>
+        <rect x="432" y="66" width="36" height="24" rx="5" fill="none" stroke="#ffffff" stroke-opacity="0.65"/>
+
+        <g transform="translate(54 155)">
+            <g>
+                <rect x="0" y="0" width="76" height="76" rx="12" fill="#ffffff" stroke="#d8dbe9"/>
+                <rect x="18" y="36" width="13" height="28" rx="3" fill="#9c4f7d"/>
+                <rect x="34" y="25" width="13" height="39" rx="3" fill="#e35d6a"/>
+                <rect x="50" y="12" width="13" height="52" rx="3" fill="#ffbd45"/>
+                <text class="tile-text" x="7" y="112">Sales</text>
+            </g>
+            <g transform="translate(130 0)">
+                <rect x="0" y="0" width="76" height="76" rx="12" fill="#ffffff" stroke="#d8dbe9"/>
+                <circle cx="38" cy="38" r="25" fill="#eef3ff"/>
+                <path d="M24 38 L35 49 L55 27" fill="none" stroke="#23b9a8" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+                <text class="tile-text" x="4" y="112">Tasks</text>
+            </g>
+            <g transform="translate(260 0)">
+                <rect x="0" y="0" width="76" height="76" rx="12" fill="#ffffff" stroke="#d8dbe9"/>
+                <path d="M24 24 L38 16 L52 24 L52 55 L38 47 L24 55 Z" fill="#20c9b5"/>
+                <path d="M38 16 L52 24 L52 55 L38 47 Z" fill="#a34d86"/>
+                <text class="tile-text" x="-10" y="112">Knowledge</text>
+            </g>
+            <g transform="translate(390 0)">
+                <rect x="0" y="0" width="76" height="76" rx="12" fill="#f2f4fb" stroke="#d8dbe9"/>
+                <path d="M38 20 L38 56 M20 38 L56 38" stroke="#ffffff" stroke-width="11" stroke-linecap="round"/>
+                <text class="tile-text" x="-10" y="112">Add Shortcut</text>
+            </g>
+        </g>
+
+        <rect x="42" y="305" width="436" height="72" rx="8" fill="#4b6d89"/>
+        <text class="label" x="70" y="352">Apps</text>
+        <rect x="432" y="327" width="36" height="24" rx="5" fill="none" stroke="#ffffff" stroke-opacity="0.65"/>
+
+        <g transform="translate(54 418)">
+            <g>
+                <rect x="0" y="0" width="76" height="76" rx="12" fill="#ffffff" stroke="#d8dbe9"/>
+                <path d="M18 55 C18 28 35 16 62 18 C58 48 43 64 18 64 Z" fill="#ff8c1a"/>
+                <text class="tile-text" x="-4" y="112">Discuss</text>
+            </g>
+            <g transform="translate(130 0)">
+                <rect x="0" y="0" width="76" height="76" rx="12" fill="#ffffff" stroke="#d8dbe9"/>
+                <rect x="17" y="32" width="15" height="31" rx="3" fill="#9c4f7d"/>
+                <rect x="34" y="23" width="15" height="40" rx="3" fill="#d35c83"/>
+                <rect x="51" y="13" width="15" height="50" rx="3" fill="#ffbd45"/>
+                <text class="tile-text" x="8" y="112">Sales</text>
+            </g>
+            <g transform="translate(260 0)">
+                <rect x="0" y="0" width="76" height="76" rx="12" fill="#ffffff" stroke="#d8dbe9"/>
+                <rect x="14" y="18" width="24" height="24" rx="4" fill="#9c4f7d"/>
+                <rect x="45" y="18" width="17" height="10" rx="3" fill="#f2657c"/>
+                <rect x="14" y="49" width="24" height="17" rx="4" fill="#1498ff"/>
+                <rect x="45" y="44" width="17" height="22" rx="4" fill="#45c4a4"/>
+                <text class="tile-text" x="-12" y="112">Dashboards</text>
+            </g>
+            <g transform="translate(390 0)">
+                <rect x="0" y="0" width="76" height="76" rx="12" fill="#ffffff" stroke="#d8dbe9"/>
+                <circle cx="38" cy="38" r="28" fill="#23b9a8"/>
+                <path d="M38 10 A28 28 0 0 1 66 38 L38 38 Z" fill="#a34d86"/>
+                <path d="M38 38 L66 38 A28 28 0 0 1 38 66 Z" fill="#1498ff"/>
+                <text class="tile-text" x="10" y="112">Apps</text>
+            </g>
+        </g>
+
+        <g transform="translate(42 618)">
+            <rect width="436" height="34" rx="17" fill="url(#accent)" opacity="0.9"/>
+            <text class="tiny" x="118" y="23">Global colors or personal colors</text>
+        </g>
+    </g>
+</svg>
