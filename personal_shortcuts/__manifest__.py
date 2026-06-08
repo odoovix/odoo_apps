@@ -1,0 +1,33 @@
+{
+    "name": "Personal Shortcuts",
+    "version": "19.0.1.0.1",
+    "category": "Productivity",
+    "summary": "Personal shortcuts on the Odoo Enterprise home menu",
+    "author": "Odoovix",
+    "support": "odoovix@gmail.com",
+    "website": "https://apps.odoo.com/apps/modules/browse?author=Odoovix",
+    "depends": ["base", "web", "web_enterprise"],
+    "data": [
+        "security/ir.model.access.csv",
+        "security/shortcut_security.xml",
+        "views/res_users_views.xml",
+    ],
+    "assets": {
+        "web.assets_backend": [
+            "personal_shortcuts/static/src/shortcut_dialog.js",
+            "personal_shortcuts/static/src/shortcut_dialog.xml",
+            "personal_shortcuts/static/src/shortcut_panel.js",
+            "personal_shortcuts/static/src/shortcut_panel.xml",
+            "personal_shortcuts/static/src/home_menu_patch.js",
+            "personal_shortcuts/static/src/home_menu_patch.xml",
+            "personal_shortcuts/static/src/shortcut_panel.scss",
+        ],
+    },
+    "images": ["static/description/banner.png"],
+    "price": 10.00,
+    "currency": "USD",
+    "license": "OPL-1",
+    "installable": True,
+    "application": False,
+    "auto_install": False,
+}
