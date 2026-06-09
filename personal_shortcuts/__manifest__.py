@@ -23,9 +23,8 @@
             "personal_shortcuts/static/src/shortcut_panel.scss",
         ],
     },
-    
     "images": ["static/description/banner.png"],
-    "price": 0.01,
+    "price": 10.00,
     "currency": "USD",
     "license": "OPL-1",
     "installable": True,
