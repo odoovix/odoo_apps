@@ -1,6 +1,7 @@
 import re
 from urllib.parse import parse_qs, urlsplit
 
+
 from odoo import api, fields, models, _
 from odoo.exceptions import AccessError
 

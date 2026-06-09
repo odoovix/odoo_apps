@@ -23,6 +23,7 @@
             "personal_shortcuts/static/src/shortcut_panel.scss",
         ],
     },
+    
     "images": ["static/description/banner.png"],
     "price": 0.01,
     "currency": "USD",

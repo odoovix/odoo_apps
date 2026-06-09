@@ -4,6 +4,7 @@ from odoo import Command, api, fields, models, _
 from odoo.exceptions import AccessError, UserError
 
 
+
 class ResUsers(models.Model):
     _inherit = "res.users"
 

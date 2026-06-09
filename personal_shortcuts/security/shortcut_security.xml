@@ -14,3 +14,4 @@
         <field name="groups" eval="[Command.link(ref('base.group_system'))]"/>
     </record>
 </odoo>
+

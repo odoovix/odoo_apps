@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+
     <record id="view_res_users_shortcuts_admin" model="ir.ui.view">
         <field name="name">res.users.shortcuts.admin</field>
         <field name="model">res.users</field>
