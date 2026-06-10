@@ -1,0 +1,89 @@
+.easy_debug_animated__piece {
+    position: fixed;
+    z-index: 1085;
+    display: block;
+    border-radius: 1px;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    animation: easy-debug-animated-throw 2600ms cubic-bezier(0.16, 0.75, 0.26, 1) var(--dpp-delay) forwards;
+}
+
+.easy_debug_animated_systray {
+    display: flex;
+    align-items: center;
+    padding: 0 0.15rem;
+}
+
+.easy_debug_animated_systray__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.28rem;
+    min-height: 1.65rem;
+    padding: 0.22rem 0.44rem;
+    border: 1px solid rgba(255, 255, 255, 0.26);
+    border-radius: 999px;
+    background: rgba(17, 24, 39, 0.78);
+    color: #fff;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.22);
+    font-size: 0.72rem;
+    font-weight: 800;
+    line-height: 1;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease, transform 0.16s ease;
+
+    &:hover {
+        background: rgba(17, 24, 39, 0.94);
+        border-color: #fbb945;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
+        transform: translateY(-1px);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+
+    .fa {
+        color: #fbb945;
+        font-size: 0.78rem;
+    }
+}
+
+.easy_debug_animated_systray__button--active {
+    background: rgba(0, 111, 109, 0.92);
+    border-color: rgba(255, 255, 255, 0.42);
+
+    &:hover {
+        background: rgba(0, 95, 93, 0.96);
+        border-color: #fbb945;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .easy_debug_animated_systray__button {
+        width: 1.65rem;
+        padding: 0;
+    }
+
+    .easy_debug_animated_systray__label {
+        display: none;
+    }
+}
+
+@keyframes easy-debug-animated-throw {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    }
+
+    55% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(calc(-50% + var(--dpp-x)), calc(-50% + var(--dpp-y) + 120px)) rotate(var(--dpp-r)) scale(0.75);
+    }
+}
