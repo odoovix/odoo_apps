@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="easy_debug_animated.Systray" owl="1">
+        <div class="easy_debug_animated_systray">
+            <button class="easy_debug_animated_systray__button"
+                    t-att-class="{ 'easy_debug_animated_systray__button--active': debugActive }"
+                    type="button"
+                    t-att-title="debugActive ? 'Deactivate developer mode' : 'Activate developer mode'"
+                    t-on-click="toggleDebug">
+                <i class="fa fa-bug" role="img" aria-label="Debug"/>
+                <span class="easy_debug_animated_systray__label" t-esc="debugActive ? 'Off' : 'On'"/>
+            </button>
+        </div>
+    </t>
+</templates>
