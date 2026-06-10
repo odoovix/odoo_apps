@@ -24,7 +24,7 @@
         ],
     },
     "images": ["static/description/banner.png"],
-    "price": 0.01,
+    "price": 10.0,
     "currency": "USD",
     "license": "OPL-1",
     "installable": True,
